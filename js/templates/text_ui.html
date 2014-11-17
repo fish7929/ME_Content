@@ -1,0 +1,179 @@
+<script type="text/javascript" src="js/views/make/font_list.js"></script>
+<script type="text/javascript" src="js/views/make/corpus_list.js"></script>
+<style type="text/css">
+/*
+@font-face {font-family:壕粗; src: url('css/fonts/zh/方正超粗黑简体.ttf') format('truetype');}
+@font-face {font-family:启繁; src: url('css/fonts/zh/方正启体繁体.ttf') format('truetype');}
+@font-face {font-family:劲黑; src: url('css/fonts/zh/工房劲黑.otf') format('truetype');}
+@font-face {font-family:篆娃; src: url('css/fonts/zh/汉仪娃娃篆简.ttf') format('truetype');}
+@font-face {font-family:白棋; src: url('css/fonts/zh/迷你简白棋.ttf') format('truetype');}
+@font-face {font-family:立黑; src: url('css/fonts/zh/迷你简立黑.ttf') format('truetype');}
+@font-face {font-family:菱心; src: url('css/fonts/zh/迷你简菱心.TTF') format('truetype');}
+@font-face {font-family:双线; src: url('css/fonts/zh/迷你简双线.ttf') format('truetype');}
+@font-face {font-family:丫丫; src: url('css/fonts/zh/迷你简丫丫.ttf') format('truetype');}
+@font-face {font-family:小丸子; src: url('css/fonts/zh/新蒂小丸子体.ttf') format('truetype');}
+@font-face {font-family:锐线; src: url('css/fonts/zh/张海山锐线体简1.0.ttf') format('truetype');}
+@font-face {font-family:中山行书; src: url('css/fonts/zh/中山行书百年纪念版.ttf') format('truetype');}
+@font-face {font-family:毛泽东字体; src: url('css/fonts/zh/毛泽东字体.ttf') format('truetype');}
+*/
+@font-face {font-family:Age; src: url('css/fonts/en/Age.otf') format('truetype');}
+@font-face {font-family:ALBURA; src: url('css/fonts/en/ALBURA.ttf') format('truetype');}
+@font-face {font-family:Amatic-Bold; src: url('css/fonts/en/Amatic-Bold.ttf') format('truetype');}
+@font-face {font-family:ANNIHILATE; src: url('css/fonts/en/ANNIHILATE.ttf') format('truetype');}
+@font-face {font-family:Archive; src: url('css/fonts/en/Archive.otf') format('truetype');}
+@font-face {font-family:Bevan; src: url('css/fonts/en/Bevan.ttf') format('truetype');}
+@font-face {font-family:Billion Stars; src: url('css/fonts/en/Billion Stars.ttf') format('truetype');}
+@font-face {font-family:Blackout-2am; src: url('css/fonts/en/Blackout-2am.ttf') format('truetype');}
+@font-face {font-family:Brainflower; src: url('css/fonts/en/Brainflower.ttf') format('truetype');}
+@font-face {font-family:Canter Light; src: url('css/fonts/en/Canter Light.otf') format('truetype');}
+@font-face {font-family:Capture it; src: url('css/fonts/en/Capture it.ttf') format('truetype');}
+@font-face {font-family:CHI-TOWN; src: url('css/fonts/en/CHI-TOWN.TTF') format('truetype');}
+@font-face {font-family:Chunkfive; src: url('css/fonts/en/Chunkfive.otf') format('truetype');}
+@font-face {font-family:clutchee; src: url('css/fonts/en/clutchee.otf') format('truetype');}
+@font-face {font-family:COLLEGE; src: url('css/fonts/en/COLLEGE.ttf') format('truetype');}
+@font-face {font-family:COLLEGEC; src: url('css/fonts/en/COLLEGEC.ttf') format('truetype');}
+@font-face {font-family:COLLEGES; src: url('css/fonts/en/COLLEGES.ttf') format('truetype');}
+@font-face {font-family:Comfortaa_Bold; src: url('css/fonts/en/Comfortaa_Bold.ttf') format('truetype');}
+@font-face {font-family:Comfortaa_Regular; src: url('css/fonts/en/Comfortaa_Regular.ttf') format('truetype');}
+@font-face {font-family:CookieMonster; src: url('css/fonts/en/CookieMonster.ttf') format('truetype');}
+@font-face {font-family:Cubop; src: url('css/fonts/en/Cubop.otf') format('truetype');}
+@font-face {font-family:Dekar Light; src: url('css/fonts/en/Dekar Light.otf') format('truetype');}
+@font-face {font-family:Dekar; src: url('css/fonts/en/Dekar.otf') format('truetype');}
+@font-face {font-family:Diner-Fatt; src: url('css/fonts/en/Diner-Fatt.ttf') format('truetype');}
+@font-face {font-family:Diner-Obese; src: url('css/fonts/en/Diner-Obese.ttf') format('truetype');}
+@font-face {font-family:Diner-Regular; src: url('css/fonts/en/Diner-Regular.ttf') format('truetype');}
+@font-face {font-family:Diner-Skinny; src: url('css/fonts/en/Diner-Skinny.ttf') format('truetype');}
+@font-face {font-family:Dubtronic-Inline; src: url('css/fonts/en/Dubtronic-Inline.otf') format('truetype');}
+@font-face {font-family:Dubtronic-Solid; src: url('css/fonts/en/Dubtronic-Solid.otf') format('truetype');}
+@font-face {font-family:Feathergraphy; src: url('css/fonts/en/Feathergraphy.ttf') format('truetype');}
+@font-face {font-family:FONT; src: url('css/fonts/en/FONT.TTF') format('truetype');}
+@font-face {font-family:GEIST_RND; src: url('css/fonts/en/GEIST_RND.ttf') format('truetype');}
+@font-face {font-family:GrandHotel-Regular; src: url('css/fonts/en/GrandHotel-Regular.otf') format('truetype');}
+@font-face {font-family:hauptbahnhof; src: url('css/fonts/en/hauptbahnhof.ttf') format('truetype');}
+@font-face {font-family:Hero Light; src: url('css/fonts/en/Hero Light.otf') format('truetype');}
+@font-face {font-family:Hipstelvetica Light; src: url('css/fonts/en/Hipstelvetica Light.ttf') format('truetype');}
+@font-face {font-family:illuminate; src: url('css/fonts/en/illuminate.ttf') format('truetype');}
+@font-face {font-family:Intro Inline; src: url('css/fonts/en/Intro Inline.otf') format('truetype');}
+@font-face {font-family:Intro; src: url('css/fonts/en/Intro.otf') format('truetype');}
+@font-face {font-family:JennaSue; src: url('css/fonts/en/JennaSue.ttf') format('truetype');}
+@font-face {font-family:JUICE_Bold; src: url('css/fonts/en/JUICE_Bold.ttf') format('truetype');}
+@font-face {font-family:JUICE_Light; src: url('css/fonts/en/JUICE_Light.ttf') format('truetype');}
+@font-face {font-family:JUICE_Regular; src: url('css/fonts/en/JUICE_Regular.ttf') format('truetype');}
+@font-face {font-family:Kabel Light; src: url('css/fonts/en/Kabel Light.otf') format('truetype');}
+@font-face {font-family:Kabel; src: url('css/fonts/en/Kabel.otf') format('truetype');}
+@font-face {font-family:Kankin; src: url('css/fonts/en/Kankin.ttf') format('truetype');}
+@font-face {font-family:KOMIKAX_; src: url('css/fonts/en/KOMIKAX_.ttf') format('truetype');}
+@font-face {font-family:Kong-Regular; src: url('css/fonts/en/Kong-Regular.ttf') format('truetype');}
+@font-face {font-family:Langdon; src: url('css/fonts/en/Langdon.otf') format('truetype');}
+@font-face {font-family:League Script; src: url('css/fonts/en/League Script.otf') format('truetype');}
+@font-face {font-family:LeagueGothic-CondensedItalic; src: url('css/fonts/en/LeagueGothic-CondensedItalic.otf') format('truetype');}
+@font-face {font-family:LeagueGothic-CondensedRegular; src: url('css/fonts/en/LeagueGothic-CondensedRegular.otf') format('truetype');}
+@font-face {font-family:LeagueGothic-Italic; src: url('css/fonts/en/LeagueGothic-Italic.otf') format('truetype');}
+@font-face {font-family:LeagueGothic-Regular; src: url('css/fonts/en/LeagueGothic-Regular.otf') format('truetype');}
+@font-face {font-family:Lobster_1.3; src: url('css/fonts/en/Lobster_1.3.otf') format('truetype');}
+@font-face {font-family:LOT; src: url('css/fonts/en/LOT.otf') format('truetype');}
+@font-face {font-family:Lovelo Black; src: url('css/fonts/en/Lovelo Black.otf') format('truetype');}
+@font-face {font-family:Lovelo Line Bold; src: url('css/fonts/en/Lovelo Line Bold.otf') format('truetype');}
+@font-face {font-family:Lovelo Line Light; src: url('css/fonts/en/Lovelo Line Light.otf') format('truetype');}
+@font-face {font-family:LOVERBOY; src: url('css/fonts/en/LOVERBOY.TTF') format('truetype');}
+@font-face {font-family:mastodonte; src: url('css/fonts/en/mastodonte.ttf') format('truetype');}
+@font-face {font-family:MavenProLight-300; src: url('css/fonts/en/MavenProLight-300.otf') format('truetype');}
+@font-face {font-family:Metropolis; src: url('css/fonts/en/Metropolis.otf') format('truetype');}
+@font-face {font-family:Molot; src: url('css/fonts/en/Molot.otf') format('truetype');}
+@font-face {font-family:Monoton-Regular; src: url('css/fonts/en/Monoton-Regular.ttf') format('truetype');}
+@font-face {font-family:Morden; src: url('css/fonts/en/Morden.otf') format('truetype');}
+@font-face {font-family:MWHeart; src: url('css/fonts/en/MWHeart.ttf') format('truetype');}
+@font-face {font-family:Myra 4F Caps; src: url('css/fonts/en/Myra 4F Caps.ttf') format('truetype');}
+@font-face {font-family:neon2; src: url('css/fonts/en/neon2.ttf') format('truetype');}
+@font-face {font-family:Null Free; src: url('css/fonts/en/Null Free.otf') format('truetype');}
+@font-face {font-family:ostrich-black; src: url('css/fonts/en/ostrich-black.ttf') format('truetype');}
+@font-face {font-family:ostrich-bold; src: url('css/fonts/en/ostrich-bold.ttf') format('truetype');}
+@font-face {font-family:ostrich-dashed; src: url('css/fonts/en/ostrich-dashed.ttf') format('truetype');}
+@font-face {font-family:ostrich-light; src: url('css/fonts/en/ostrich-light.ttf') format('truetype');}
+@font-face {font-family:ostrich-regular; src: url('css/fonts/en/ostrich-regular.ttf') format('truetype');}
+@font-face {font-family:ostrich-rounded; src: url('css/fonts/en/ostrich-rounded.ttf') format('truetype');}
+@font-face {font-family:Outstanding; src: url('css/fonts/en/Outstanding.otf') format('truetype');}
+@font-face {font-family:OutStanding; src: url('css/fonts/en/OutStanding.ttf') format('truetype');}
+@font-face {font-family:OXYGENE1; src: url('css/fonts/en/OXYGENE1.ttf') format('truetype');}
+@font-face {font-family:Pacifico; src: url('css/fonts/en/Pacifico.ttf') format('truetype');}
+@font-face {font-family:PaperHearts; src: url('css/fonts/en/PaperHearts.ttf') format('truetype');}
+@font-face {font-family:pincoyablack; src: url('css/fonts/en/pincoyablack.otf') format('truetype');}
+@font-face {font-family:Quicksand; src: url('css/fonts/en/Quicksand.otf') format('truetype');}
+@font-face {font-family:Raleway Thin; src: url('css/fonts/en/Raleway Thin.otf') format('truetype');}
+@font-face {font-family:Raleway; src: url('css/fonts/en/Raleway.otf') format('truetype');}
+@font-face {font-family:RalewayDots; src: url('css/fonts/en/RalewayDots.ttf') format('truetype');}
+@font-face {font-family:Raleway-Heavy; src: url('css/fonts/en/Raleway-Heavy.otf') format('truetype');}
+@font-face {font-family:Raleway-Light; src: url('css/fonts/en/Raleway-Light.otf') format('truetype');}
+@font-face {font-family:RBNo2Light_a; src: url('css/fonts/en/RBNo2Light_a.otf') format('truetype');}
+@font-face {font-family:Retro Fitted; src: url('css/fonts/en/Retro Fitted.ttf') format('truetype');}
+@font-face {font-family:Rex Bold; src: url('css/fonts/en/Rex Bold.otf') format('truetype');}
+@font-face {font-family:Rex Inline; src: url('css/fonts/en/Rex Inline.otf') format('truetype');}
+@font-face {font-family:Rex; src: url('css/fonts/en/Rex.otf') format('truetype');}
+@font-face {font-family:ROMANTIC; src: url('css/fonts/en/ROMANTIC.ttf') format('truetype');}
+@font-face {font-family:ROSECUBE; src: url('css/fonts/en/ROSECUBE.TTF') format('truetype');}
+@font-face {font-family:Sanotra Bold; src: url('css/fonts/en/Sanotra Bold.ttf') format('truetype');}
+@font-face {font-family:Sanotra; src: url('css/fonts/en/Sanotra.ttf') format('truetype');}
+@font-face {font-family:Silverfake; src: url('css/fonts/en/Silverfake.otf') format('truetype');}
+@font-face {font-family:Simply Glamorous; src: url('css/fonts/en/Simply Glamorous.ttf') format('truetype');}
+@font-face {font-family:Skram; src: url('css/fonts/en/Skram.ttf') format('truetype');}
+@font-face {font-family:Snickles; src: url('css/fonts/en/Snickles.ttf') format('truetype');}
+@font-face {font-family:Sniglet; src: url('css/fonts/en/Sniglet.ttf') format('truetype');}
+@font-face {font-family:Stiff Staff; src: url('css/fonts/en/Stiff Staff.otf') format('truetype');}
+@font-face {font-family:TETRA; src: url('css/fonts/en/TETRA.otf') format('truetype');}
+@font-face {font-family:Track; src: url('css/fonts/en/Track.ttf') format('truetype');}
+@font-face {font-family:TrueLove Bold; src: url('css/fonts/en/TrueLove Bold.ttf') format('truetype');}
+@font-face {font-family:TrueLove; src: url('css/fonts/en/TrueLove.ttf') format('truetype');}
+@font-face {font-family:urban_brigade; src: url('css/fonts/en/urban_brigade.ttf') format('truetype');}
+@font-face {font-family:VAL Stencil; src: url('css/fonts/en/VAL Stencil.otf') format('truetype');}
+@font-face {font-family:VAL; src: url('css/fonts/en/VAL.otf') format('truetype');}
+@font-face {font-family:Voga-Medium; src: url('css/fonts/en/Voga-Medium.otf') format('truetype');}
+@font-face {font-family:Weston Free; src: url('css/fonts/en/Weston Free.otf') format('truetype');}
+@font-face {font-family:White Rabbit; src: url('css/fonts/en/White Rabbit.ttf') format('truetype');}
+</style>
+<textarea type="text" id="input_text2" cols="10" rows="5" placeholder="请点击写下你的心情"></textarea>
+<nav id="inputtab" class="text_input_tab">
+  <ul id="text_nav_ul">
+      <li><div class="zikuselected" attr="text_type"></div></li>
+      <li><div></div></li>
+      <li><div class="zitinoselected" attr="text_input"></div></li>
+      <li><div id="close_text_ui"></div></li>
+  </ul>
+ </nav>
+ <div id="inputcontent">
+     <div id="text_type_wrapper">
+         <div id="text_type_scroller">
+             <ul id="list1">
+                 <li><div class="text_type_selected">吐槽</div></li>
+                 <li><div>卖萌</div></li>
+                 <li><div>梦想</div></li>
+                 <li><div>发泄</div></li>
+             </ul>
+         </div>
+     </div>
+     <div id="text_wrapper">
+         <div id="text_scroller">
+             <ul id="list2">
+                 <li><div><div>aa</div></div></li>
+                 <li><div><div>bb</div></div></li>
+                 <li><div><div>cc</div></div></li>
+                 <li><div><div>dd</div></div></li>
+                 <li><div><div>ee</div></div></li>
+                 <li><div><div>ff</div></div></li>
+                 <li><div><div>hh</div></div></li>
+                 <li><div><div>gg</div></div></li>
+                 <li><div><div>ee</div></div></li>
+             </ul>
+             <ul id="list_font">
+                 <li><div><div>aa</div></div></li>
+                 <li><div><div>bb</div></div></li>
+                 <li><div><div>cc</div></div></li>
+                 <li><div><div>dd</div></div></li>
+                 <li><div><div>ee</div></div></li>
+                 <li><div><div>ff</div></div></li>
+                 <li><div><div>hh</div></div></li>
+                 <li><div><div>gg</div></div></li>
+                 <li><div><div>ee</div></div></li>
+             </ul>
+         </div>
+     </div>
+ </div>

@@ -1,0 +1,14 @@
+.setting_header{
+	height: 100px;
+	width: 100%;
+	font-size: 3em;
+	color: #fff;
+	text-align: center;
+	line-height: 100px;
+	/* background: rgba(33,40,45,.1); */
+	background-color:#000;
+}
+.h_108{
+	height: 108px !important;
+
+}

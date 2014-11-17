@@ -1,0 +1,31 @@
+
+
+#topic_fall_wrapper{
+	position: absolute;
+	width: 100%;
+}
+#fma_ui_topic{
+		background-color:#fff;
+}
+#topic_content{
+	position: absolute;
+	width: 100%;
+	top: 148px;
+}
+#page_title{
+	text-align:center;
+	font-size:40px;
+	color: #fff;
+}
+.topic_tobackbtn{
+		position: absolute;
+    z-index: 999;
+    width:100px;
+    height: 100%;
+    cursor: pointer;
+    background: url("../images/skin/back.png") no-repeat center;
+    background-size: auto 40%;
+}
+
+
+

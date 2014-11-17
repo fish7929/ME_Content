@@ -1,0 +1,35 @@
+
+#fma_ui_help{
+		position:absolute;
+		width:100%;
+		height:100%;
+		overflow:hidden;
+		
+		background-color:#232323;
+}
+
+#fma_ui_help img{
+		width:100%;
+		max-height:100%;
+}
+#help_container{
+		padding-top:190px;
+		position:relative;
+}
+
+#help_container div{
+		position:relative;
+		top:0;
+		left:0;
+}
+
+#help_scroll{
+	position:initial;
+	width:77%;
+}
+
+#help_container .help_c{
+		width:100%;
+}
+
+

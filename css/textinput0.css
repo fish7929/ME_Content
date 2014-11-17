@@ -1,0 +1,370 @@
+#textinput{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(55,58,60,0.5);
+    z-index: 10;
+}
+
+.showtextinput{
+    bottom: 0px;
+    display: block;
+    overflow: hidden;
+}
+
+.hidetextinput{
+    bottom: -100%;
+    display: none;
+}
+
+
+#input_div{
+    position: absolute;
+    left: 0;z-index: 999;
+    top: 400px;
+    margin: 0 auto;
+    left: 0;
+    right: 0;
+    text-align: center;
+    display: none;
+}
+
+#input_text{
+    background: transparent;
+    position: absolute;
+    bottom: 0;
+    color: #ffffff;
+    border: 1px dashed #000000;
+    -webkit-appearance: none !important;
+    width: 100%;
+    height: 30%;
+    font-size: 110px;
+    overflow: hidden;
+    resize: none;
+}
+
+#input_text2{
+    background: transparent;
+    position: absolute;
+    top: 0;
+    color: #ffffff;
+    border: 1px dashed #000000;
+    -webkit-appearance: none !important;
+    width: 100%;
+    height: 20%;
+    font-size: 50px;
+    overflow: hidden;
+    overflow-y: scroll;
+    resize: none;
+    outline: none;
+    -webkit-overflow-scrolling: touch;
+}
+
+#input_div  a{
+    cursor: pointer;
+    color: #000;
+}
+
+.text_input_tab{
+    width: 100%;
+    height: 80px;
+    background: #272727;
+    position: absolute;
+    bottom:440px;
+}
+
+.text_input_tab > ul{
+    width: 100%;
+}
+
+.text_input_tab > ul > li{
+    float: left;
+    list-style: none;
+}
+
+.text_input_tab > ul > li:nth-child(1){
+     width: 37.5%;
+     height: 80px;
+     line-height: 80px;
+ }
+
+.text_input_tab > ul > li:nth-child(1) > div{
+    width: 100%;
+    height: 100%;
+}
+
+
+.text_input_tab > ul > li:nth-child(2){
+    width: 3.125%;
+    height: 80px;
+    line-height: 80px;
+}
+
+.text_input_tab > ul > li:nth-child(2) > div{
+    width: 2px;
+    height: 46px;
+    margin: 0 auto;
+    margin-top: 16px;
+    border-left: 2px solid #555555;
+}
+
+.text_input_tab > ul > li:nth-child(3){
+    width: 37.5%;
+    height: 80px;
+    line-height: 80px;
+}
+
+.text_input_tab > ul > li:nth-child(3) > div{
+    width: 100%;
+    height: 80px;
+}
+
+.text_input_tab > ul > li:nth-child(4){
+    width: 21.875%;
+    height: 80px;
+    line-height: 80px;
+    background: #000000;
+}
+
+.text_input_tab > ul > li:nth-child(4) > div{
+    width: 100%;
+    background: url("../images/skin/queding.png") no-repeat center;
+    height: 64px;
+    margin: 0 auto;
+    background-size: auto 60%;
+}
+
+#inputcontent{
+    position: absolute;
+    width:100%;
+    background: #161a1a;
+    bottom: 0;
+    min-height: 440px;
+}
+
+#text_type_wrapper,#text_wrapper {
+    position: absolute;
+    z-index: 9;
+    top: 0;
+    bottom: 0;
+    height: 90%;
+    overflow: hidden;
+}
+
+#text_type_scroller,#text_scroller {
+    position: absolute;
+    z-index: 9;
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+    -webkit-transform: translateZ(0);
+    -moz-transform: translateZ(0);
+    -ms-transform: translateZ(0);
+    -o-transform: translateZ(0);
+    transform: translateZ(0);
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    -webkit-text-size-adjust: none;
+    -moz-text-size-adjust: none;
+    -ms-text-size-adjust: none;
+    -o-text-size-adjust: none;
+    text-size-adjust: none;
+    width: 100%;
+
+    text-align: center;
+}
+
+#text_type_scroller{
+    font-size: 3em;
+    color: #576467;
+}
+
+#text_type_scroller ul li{
+    height: 90px;
+    line-height: 90px;
+    text-align: center;
+}
+
+#text_type_wrapper{
+    width: 20%;
+    height: 100%;
+    left: 0;
+    background: #222222;
+}
+
+#text_scroller ul li{
+    height: 80px;
+    color: #fff;
+    font-size: 3em;
+}
+
+.text_type_selected div{
+    color: #E4FF3D;
+}
+
+#text_wrapper{
+    width: 80%;
+    right: 0;
+    margin-top: 1.5%;
+}
+
+#text_type_scroller ul li div{
+    height: 100%;
+    margin: 0 auto;
+}
+
+.text_type_selected{
+    height: 50%;
+    margin: 0 auto;
+    color: #E4FF3D;
+}
+
+.zikuselected{
+    background: url("../images/skin3/ziku_xuanze.png") no-repeat center;
+    border-bottom: 4px solid #E4FF3D;
+    background-size: auto 50%;
+}
+.zikunoselected{
+    background: url("../images/skin3/ziku_xuanze.png") no-repeat center;
+    background-size: auto 50%;
+}
+
+.zitiselected{
+    background: url("../images/skin/ziti.png") no-repeat center;
+    border-bottom: 4px solid #E4FF3D;
+    background-size: auto 50%;
+}
+
+.zitinoselected{
+    background: url("../images/skin/ziti.png") no-repeat center;
+    background-size: auto 50%;
+}
+input{
+    display: none;
+}
+.font_text-align{
+    display: none;
+}
+/*#font_wrapper{
+    display: none;
+}*/
+#font_ui{
+    width: 100%;
+    height: 100px;
+    position: relative;
+    visibility: hidden;
+    background: rgba(0,0,0,.8);
+    border-bottom: 1px solid #232323;
+}
+#font_tool{
+    width: 100%;
+    height: 132px;
+    overflow: hidden;
+    background: rgba(0,0,0,.9);
+}
+#font_tool>div {
+    /*width: 714px;*/
+    height: 100%;
+}
+#font_tool li {
+    width: 65px;
+    height: 100%;
+    display: inline-block;
+    margin: 0 27px;
+    list-style: none;
+}
+
+#font_tool .font_align_icon{
+    background: url("../images/skin3/make/text/font_align_icon.png") no-repeat center;
+}
+#font_tool .font_align_icon.active{
+    background: url("../images/skin3/make/text/font_align_selected_icon.png") no-repeat center;
+}
+
+#font_tool .font_color_icon{
+    background: url("../images/skin3/make/text/font_color_icon.png") no-repeat center;
+}
+#font_tool .font_color_icon.active{
+    background: url("../images/skin3/make/text/font_color_selected_icon.png") no-repeat center;
+}
+
+#font_tool .font_height_icon{
+    background: url("../images/skin3/make/text/font_height_icon.png") no-repeat center;
+}
+#font_tool .font_height_icon.active{
+    background: url("../images/skin3/make/text/font_height_selected_icon.png") no-repeat center;
+}
+
+#font_tool .font_opacity_icon{
+    background: url("../images/skin3/make/text/font_opacity_icon.png") no-repeat center;
+}
+#font_tool .font_opacity_icon.active{
+    background: url("../images/skin3/make/text/font_opacity_selected_icon.png") no-repeat center;
+}
+
+#font_tool .font_size_icon{
+    background: url("../images/skin3/make/text/font_size_icon.png") no-repeat center;
+}
+#font_tool .font_size_icon.active{
+    background: url("../images/skin3/make/text/font_size_selected_icon.png") no-repeat center;
+}
+
+#font_tool .font_spacing_icon{
+    background: url("../images/skin3/make/text/font_spacing_icon.png") no-repeat center;
+}
+#font_tool .font_spacing_icon.active{
+    background: url("../images/skin3/make/text/font_spacing_selected_icon.png") no-repeat center;
+}
+
+input[type="range"] {
+    top: 50%;
+    width: 90%;
+    left: 50%;
+    -webkit-transform: translate(-50%,-50%);
+    transform: translate(-50%,-50%);
+
+}
+#font_wrapper{
+    margin-left: 9px;
+    height: 62px;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%,-50%);
+    transform: translate(-50%,-50%);
+}
+#fontAlign{
+    width: 100%;
+    height: 100%;
+}
+#fontAlign ul {
+    height: 100%;
+}
+#fontAlign li {
+    width: 56px;
+    list-style: none;
+    display: inline-block;
+}
+#maskalpha{
+    position: absolute;
+    display: block;
+}
+#fontColor{
+    width:100%;
+    height:100%;
+}
+.input_mask.font{
+    left: 5%;
+}
+#list_font{
+    display: none;
+}
+#fontAlign .align-left{
+    background: url(../images/skin3/make/text/align_left.png) no-repeat center;
+}
+#fontAlign .align-center{
+    background: url(../images/skin3/make/text/align_center.png) no-repeat center;
+}
+#fontAlign .align-right{
+    background: url(../images/skin3/make/text/align_right.png) no-repeat center;
+}

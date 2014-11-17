@@ -1,0 +1,403 @@
+<!--顶部-->
+<div class="top_box">
+    <div class="set_break_logo"></div>
+    <div class="page_title">管理中心</div>
+    <div class="set_delete_but_logo" onClick="delete_manage()"></div>
+</div>
+<div class="page_long">
+<div class="page_min_menu set_menu">
+    <div  menu_nmu="1" pageId="page_min_menu_tpl">
+        模版
+        <div></div>
+    </div>
+    <div menu_nmu="2" pageId="page_min_menu_font"  class="set_menu_sel">
+        字体
+        <div></div>
+    </div>
+    <div menu_nmu="3" pageId="page_min_menu_border">
+        边框
+        <div></div>
+    </div>
+    <div menu_nmu="4">
+        水印
+        <div></div>
+    </div>
+    <div menu_nmu="5">
+        语料
+        <div></div>
+    </div>
+</div>
+
+<!--边框-->
+<div class="page_min_long" style="display:none" id="page_min_menu_border">
+    <ul class="FLOAT_UL sel_liset_box">
+        <li>
+            <div class="sel_box_logo">
+                <!--用img 方便数据更新-->
+                <img src="images/sel_border_1.jpg" class="sel_midden_img" />
+
+                <div class="sel_mak_box sel_mak_boxs"></div>
+            </div>
+            <div class="progress_box HIDE">
+                <!--下面那个style用于方便数据交互 调整值变更进度尺寸-->
+                <div class="progress_bar" style="width:50%"></div>
+            </div>
+        </li>
+        <li>
+            <div class="sel_box_logo">
+                <img src="images/sel_border_2.jpg" class="sel_midden_img" />
+
+                <div class="sel_mak_box sel_mak_boxs"></div>
+            </div>
+            <div class="progress_box HIDE">
+                <!--下面那个style用于方便数据交互 调整值变更进度尺寸-->
+                <div class="progress_bar" style="width:50%"></div>
+            </div>
+        </li>
+        <li>
+            <div class="sel_box_logo">
+                <img src="images/sel_border_3.jpg" class="sel_midden_img" />
+
+                <div class="sel_mak_box sel_mak_boxs"></div>
+            </div>
+            <div class="progress_box HIDE">
+                <!--下面那个style用于方便数据交互 调整值变更进度尺寸-->
+                <div class="progress_bar" style="width:50%"></div>
+            </div>
+        </li>
+        <li>
+            <div class="sel_box_logo">
+                <img src="images/sel_border_4.jpg" class="sel_midden_img" />
+
+                <div class="sel_mak_box sel_mak_boxs"></div>
+            </div>
+            <div class="progress_box">
+                <!--下面那个style用于方便数据交互 调整值变更进度尺寸-->
+                <div class="progress_bar" style="width:50%"></div>
+            </div>
+        </li>
+        <li>
+            <div class="sel_box_logo">
+                <img src="images/sel_border_5.jpg" class="sel_midden_img" />
+
+                <div class="sel_mak_box sel_mak_boxs"></div>
+            </div>
+            <div class="progress_box">
+                <!--下面那个style用于方便数据交互 调整值变更进度尺寸-->
+                <div class="progress_bar" style="width:50%"></div>
+            </div>
+        </li>
+        <li>
+            <div class="sel_box_logo">
+                <img src="images/sel_border_6.jpg" class="sel_midden_img" />
+
+                <div class="sel_mak_box sel_mak_boxs"></div>
+            </div>
+            <div class="progress_box">
+                <!--下面那个style用于方便数据交互 调整值变更进度尺寸-->
+                <div class="progress_bar" style="width:50%"></div>
+            </div>
+        </li>
+        <li>
+            <div class="sel_box_logo">
+                <img src="images/sel_border_7.jpg" class="sel_midden_img" />
+
+                <div class="sel_mak_box sel_bot_mak_box sel_mak_boxs"></div>
+            </div>
+            <div class="progress_box HIDE">
+                <!--下面那个style用于方便数据交互 调整值变更进度尺寸-->
+                <div class="progress_bar" style="width:50%"></div>
+            </div>
+        </li>
+        <li>
+            <div class="sel_box_logo">
+                <img src="images/sel_border_8.jpg" class="sel_midden_img" />
+
+                <div class="sel_mak_box sel_bot_mak_box sel_mak_boxs"></div>
+            </div>
+            <div class="progress_box HIDE">
+                <!--下面那个style用于方便数据交互 调整值变更进度尺寸-->
+                <div class="progress_bar" style="width:50%"></div>
+            </div>
+        </li>
+        <li>
+            <div class="sel_box_logo">
+                <img src="images/sel_border_9.jpg" class="sel_midden_img" />
+
+                <div class="sel_mak_box sel_bot_mak_box sel_mak_boxs"></div>
+            </div>
+            <div class="progress_box HIDE">
+                <!--下面那个style用于方便数据交互 调整值变更进度尺寸-->
+                <div class="progress_bar" style="width:50%"></div>
+            </div>
+        </li>
+    </ul>
+
+</div>
+<!--模版-->
+<div class="page_min_long" style="display:none" id="page_min_menu_tpl">
+    <ul class="FLOAT_UL sel_liset_box">
+        <li>
+            <div class="sel_box_logo">
+                <!--用img 方便数据更新-->
+                <img src="images/set_tem1.jpg" class="sel_midden_img_tpl" />
+
+                <div class="sel_mak_box_tpl sel_mak_boxs "></div>
+            </div>
+            <div class="progress_box HIDE">
+                <!--下面那个style用于方便数据交互 调整值变更进度尺寸-->
+                <div class="progress_bar" style="width:50%"></div>
+            </div>
+        </li>
+        <li>
+            <div class="sel_box_logo">
+                <!--用img 方便数据更新-->
+                <img src="images/set_tem1.jpg" class="sel_midden_img_tpl" />
+
+                <div class="sel_mak_box_tpl sel_mak_boxs "></div>
+            </div>
+            <div class="progress_box HIDE">
+                <!--下面那个style用于方便数据交互 调整值变更进度尺寸-->
+                <div class="progress_bar" style="width:50%"></div>
+            </div>
+        </li>
+        <li>
+            <div class="sel_box_logo">
+                <!--用img 方便数据更新-->
+                <img src="images/set_tem1.jpg" class="sel_midden_img_tpl" />
+
+                <div class="sel_mak_box_tpl sel_mak_boxs "></div>
+            </div>
+            <div class="progress_box HIDE">
+                <!--下面那个style用于方便数据交互 调整值变更进度尺寸-->
+                <div class="progress_bar" style="width:50%"></div>
+            </div>
+        </li>
+        <li>
+            <div class="sel_box_logo">
+                <!--用img 方便数据更新-->
+                <img src="images/set_tem2.jpg" class="sel_midden_img_tpl" />
+
+                <div class="sel_mak_box_tpl sel_mak_boxs "></div>
+            </div>
+            <div class="progress_box">
+                <!--下面那个style用于方便数据交互 调整值变更进度尺寸-->
+                <div class="progress_bar" style="width:50%"></div>
+            </div>
+        </li>
+        <li>
+            <div class="sel_box_logo">
+                <!--用img 方便数据更新-->
+                <img src="images/set_tem2.jpg" class="sel_midden_img_tpl" />
+
+                <div class="sel_mak_box_tpl sel_mak_boxs "></div>
+            </div>
+            <div class="progress_box">
+                <!--下面那个style用于方便数据交互 调整值变更进度尺寸-->
+                <div class="progress_bar" style="width:50%"></div>
+            </div>
+        </li>
+        <li>
+            <div class="sel_box_logo">
+                <!--用img 方便数据更新-->
+                <img src="images/set_tem2.jpg" class="sel_midden_img_tpl" />
+
+                <div class="sel_mak_box_tpl sel_mak_boxs "></div>
+            </div>
+            <div class="progress_box">
+                <!--下面那个style用于方便数据交互 调整值变更进度尺寸-->
+                <div class="progress_bar" style="width:50%"></div>
+            </div>
+        </li>
+        <li>
+            <div class="sel_box_logo">
+                <!--用img 方便数据更新-->
+                <img src="images/set_tem3.jpg" class="sel_midden_img_tpl" />
+
+                <div class="sel_mak_box_tpl sel_mak_boxs  sel_bot_mak_box_tpl"></div>
+            </div>
+            <div class="progress_box HIDE">
+                <!--下面那个style用于方便数据交互 调整值变更进度尺寸-->
+                <div class="progress_bar" style="width:50%"></div>
+            </div>
+        </li>
+        <li>
+            <div class="sel_box_logo">
+                <!--用img 方便数据更新-->
+                <img src="images/set_tem3.jpg" class="sel_midden_img_tpl" />
+
+                <div class="sel_mak_box_tpl sel_mak_boxs  sel_bot_mak_box_tpl"></div>
+            </div>
+            <div class="progress_box HIDE">
+                <!--下面那个style用于方便数据交互 调整值变更进度尺寸-->
+                <div class="progress_bar" style="width:50%"></div>
+            </div>
+        </li>
+        <li>
+            <div class="sel_box_logo">
+                <!--用img 方便数据更新-->
+                <img src="images/set_tem3.jpg" class="sel_midden_img_tpl" />
+
+                <div class="sel_mak_box_tpl sel_mak_boxs  sel_bot_mak_box_tpl"></div>
+            </div>
+            <div class="progress_box HIDE">
+                <!--下面那个style用于方便数据交互 调整值变更进度尺寸-->
+                <div class="progress_bar" style="width:50%"></div>
+            </div>
+        </li>
+    </ul>
+
+</div>
+<!--字体-->
+<!--具体字体样式:未提供-->
+<div class="page_min_long" id="page_min_menu_font" style="display:back">
+    <ul class="FLOAT_UL sel_liset_box">
+        <li>
+            <div class="sel_box_logo">
+
+                <div class="sel_midden_img sel_font_img" >
+                    <div>
+                        微软雅黑
+                    </div>
+                </div>
+                <div class="sel_font_mak_box sel_mak_boxs "></div>
+            </div>
+            <div class="progress_box HIDE">
+                <!--下面那个style用于方便数据交互 调整值变更进度尺寸-->
+                <div class="progress_bar" style="width:50%"></div>
+            </div>
+        </li>
+        <li>
+            <div class="sel_box_logo">
+
+                <div class="sel_midden_img sel_font_img" >
+                    <div>
+                        细圆体
+                    </div>
+                </div>
+                <div class="sel_font_mak_box sel_mak_boxs "></div>
+            </div>
+            <div class="progress_box HIDE">
+                <!--下面那个style用于方便数据交互 调整值变更进度尺寸-->
+                <div class="progress_bar" style="width:50%"></div>
+            </div>
+        </li>
+        <li>
+            <div class="sel_box_logo">
+
+                <div class="sel_midden_img sel_font_img" >
+                    <div>
+                        造字工坊尚黑
+                    </div>
+                </div>
+                <div class="sel_font_mak_box sel_mak_boxs "></div>
+            </div>
+            <div class="progress_box HIDE">
+                <!--下面那个style用于方便数据交互 调整值变更进度尺寸-->
+                <div class="progress_bar" style="width:50%"></div>
+            </div>
+        </li>
+
+        <li>
+            <div class="sel_box_logo">
+
+                <div class="sel_midden_img sel_font_img" >
+                    <div>
+                        造字工坊雅黑
+                    </div>
+                </div>
+                <div class="sel_font_mak_box sel_mak_boxs "></div>
+            </div>
+            <div class="progress_box">
+                <!--下面那个style用于方便数据交互 调整值变更进度尺寸-->
+                <div class="progress_bar" style="width:50%"></div>
+            </div>
+        </li>
+        <li>
+            <div class="sel_box_logo">
+
+                <div class="sel_midden_img sel_font_img" >
+                    <div>
+                        幼圆
+                    </div>
+                </div>
+                <div class="sel_font_mak_box sel_mak_boxs "></div>
+            </div>
+            <div class="progress_box">
+                <!--下面那个style用于方便数据交互 调整值变更进度尺寸-->
+                <div class="progress_bar" style="width:50%"></div>
+            </div>
+        </li>
+        <li>
+            <div class="sel_box_logo">
+
+                <div class="sel_midden_img sel_font_img" >
+                    <div>
+                        迷你简YY
+                    </div>
+                </div>
+                <div class="sel_font_mak_box sel_mak_boxs "></div>
+            </div>
+            <div class="progress_box">
+                <!--下面那个style用于方便数据交互 调整值变更进度尺寸-->
+                <div class="progress_bar" style="width:50%"></div>
+            </div>
+        </li>
+
+        <li>
+            <div class="sel_box_logo">
+
+                <div class="sel_midden_img sel_font_img" >
+                    <div>
+                        迷你简启体
+                    </div>
+                </div>
+                <div class="sel_font_mak_box sel_mak_boxs  sel_bot_font_mak_box"></div>
+            </div>
+            <div class="progress_box HIDE">
+                <!--下面那个style用于方便数据交互 调整值变更进度尺寸-->
+                <div class="progress_bar" style="width:50%"></div>
+            </div>
+        </li>
+
+        <li>
+            <div class="sel_box_logo">
+
+                <div class="sel_midden_img sel_font_img" >
+                    <div>
+                        秀丽体
+                    </div>
+                </div>
+                <div class="sel_font_mak_box sel_mak_boxs  sel_bot_font_mak_box"></div>
+            </div>
+            <div class="progress_box HIDE">
+                <!--下面那个style用于方便数据交互 调整值变更进度尺寸-->
+                <div class="progress_bar" style="width:50%"></div>
+            </div>
+        </li>
+        <li>
+            <div class="sel_box_logo">
+
+                <div class="sel_midden_img sel_font_img" >
+                    <div>
+                        微软简粗体
+                    </div>
+                </div>
+                <div class="sel_font_mak_box sel_mak_boxs  sel_bot_font_mak_box"></div>
+            </div>
+            <div class="progress_box HIDE">
+                <!--下面那个style用于方便数据交互 调整值变更进度尺寸-->
+                <div class="progress_bar" style="width:50%"></div>
+            </div>
+        </li>
+    </ul>
+
+</div>
+</div>
+
+</div>
+
+<!--遮罩-->
+<div class="mask_five" style="display:none" state="not_manage">
+    <div class="delete_but" onclick="delete_but()">删除</div>
+</div>

@@ -1,0 +1,53 @@
+/* add mistery */
+@-webkit-keyframes mefire_1{
+	25%{
+			-webkit-transform: translate3d(-66px,0px,0px);
+		}
+	50%{
+			-webkit-transform: translate3d(-66px,-66px,0px);
+	}
+	75%{
+			-webkit-transform: translate3d(0px,-66px,0px);
+	}
+	100%{
+			-webkit-transform: translate3d(0px,0px,0px);
+		}
+}
+@-webkit-keyframes mefire_color_1{
+	from{box-shadow:inset 0px 0px 0px 0px rgba(190,190,190,.5);}
+	to{box-shadow:inset 0px -60px 0px 0px rgba(190,190,190,.5);}
+}
+.mefier{
+		width:44px;
+		height:40px;
+		border:2px solid #fff;
+		border-radius:4%;
+		position:relative;
+		margin:auto;
+		box-sizing: border-box;
+		
+		-webkit-animation: mefire_color_1 2s linear infinite;
+}
+.mefier:after, .mefier:before{
+		position:absolute;
+		content: "";
+}
+.mefier:after{
+		width:6px;
+		height:6px;
+		background-color:#fff;
+		bottom:-16px;
+		left:50px;
+		border-radius:2px;
+		
+		-webkit-animation: mefire_1 1s linear infinite;
+		animation: mefire_1 1s linear infinite;
+}
+.mefier:before{
+		content: "me";
+		color: #fff;
+		font-size: 24px;
+		left:2px;
+		text-align:center;
+		top:2px;
+}

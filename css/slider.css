@@ -1,0 +1,122 @@
+/************************nav************************/
+#nav {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    background: #171a1d;
+    color: #555;
+    background: url("../images/skin3/bg-cehua.png") no-repeat center;
+    background-size: 100% 100%;
+    overflow: hidden;
+    display: block;
+}
+
+
+#nav header{
+    width: 100%;
+}
+
+#nav ul li{
+    list-style: none;
+}
+
+.slider_pic{
+    width: 150px;
+    height: 168px;
+    margin: 0 auto;
+    margin-top: 100px;
+    background-size: 100% 100%;
+
+}
+
+.slider_h{
+    height: 34px;
+}
+
+.slider_pic div{
+    width: 100%;
+    height: 100%;
+    background: url("../images/skin3/logo.png") no-repeat center;
+    background-size: 100% 100%;
+}
+
+.slider_name{
+    font-size: 3em;
+    height: 52px;
+    width: 200px;
+    text-align: center;
+    margin: 0 auto;
+}
+
+.slider_line{
+    width: 200px;
+    height: 20px;
+    margin-top: 4px;
+    border-left: 2px solid #ffffff;
+    border-right: 2px solid #ffffff;
+    border-bottom: 2px solid #ffffff;
+    margin: 0 auto;
+}
+
+#nav section{
+    margin-top: 140px;
+}
+
+
+#nav section > ul li{
+    font-size: 3em;
+    height: 100px;
+    line-height: 100px;
+}
+
+#nav section > ul li *{
+    float: left;
+}
+
+.slider_home,.slider_setting,.slider_about,.slider_help{
+    display: block;
+    /*width: 80%;*/
+    height: 100px;
+    margin-left: 6%;
+    float: left;
+}
+
+.icon_home,.icon_setting,.icon_about,.icon_help{
+    width: 60px;
+    height: 100%;
+    margin-left: 15%;
+    float: left;
+
+}
+
+.icon_home{
+    background: url("../images/skin/shouye_icon.png") no-repeat center;
+    background-size: 100% auto;
+}
+
+.icon_setting{
+    background: url("../images/skin/congxiangcexuanzew.png") no-repeat center;
+    background-size: 100% auto;
+}
+
+.icon_about{
+    background: url("../images/skin/pinglun_icon.png") no-repeat center;
+    background-size: 100% auto;
+}
+
+.icon_help{
+    background: url("../images/skin/bangzhu_icon.png") no-repeat center;
+    background-size: 100% auto;
+}
+
+.slider_header_ul{
+    width: 300px;
+    margin-left: 10%;
+}
+
+#nav section > ul li:hover{
+	background: url("../images/skin/slider_bg.png") repeat;
+}

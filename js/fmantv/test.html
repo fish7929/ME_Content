@@ -1,0 +1,231 @@
+﻿<html>
+	
+<head>
+<title >美说测试程序</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no";charset="utf-8">		
+<script type="text/javascript" src="fmantv.i.js" charset="utf-8"></script>
+<script type="text/javascript" src="fmantv.js" charset="utf-8"></script>
+</head>
+
+<body>
+<br/>
+<a href="itms-services://?action=download-manifest&url=http://192.168.6.208/manifest.plist">7.1以下版本ios安装</a><br/>
+<button type="button" onclick="fmantv.init(init_ok, init_err)">初始化</button> <br>
+<button type="button" onclick="fmantv.uninit(uninit_ok, uninit_err)">反初始化</button> <br>
+<button type="button" onclick="fmantv.share('sword', 'http://192.168.6.207/icon-72.png', 2, 1, share_ok, share_err)">分享到微信会话</button> <br>
+<button type="button" onclick="fmantv.share('sword', 'http://192.168.6.207/icon-72.png', 2, 2, share_ok, share_err)">分享到微信朋友</button> <br>
+<button type="button" onclick="fmantv.share('sword', 'http://192.168.6.207/icon-72.png', 2, 3, share_ok, share_err)">分享到qq朋友</button> <br>
+<button type="button" onclick="fmantv.share('sword', 'http://192.168.6.207/icon-72.png', 2, 4, share_ok, share_err)">分享到qq空间</button> <br>
+<button type="button" onclick="fmantv.share('sword', 'http://192.168.6.207/icon-72.png', 2, 5, share_ok, share_err)">分享到新浪微博</button> <br>
+<button type="button" onclick="local_file_w()">本地文件写</button> <br>
+<button type="button" onclick="local_file_r()">本地文件读</button> <br>
+<button type="button" onclick="album_r()">读相册</button> <br>
+<button type="button" onclick="album_w()">写相册</button> <br>
+<button type="button" onclick="phone_number_r()">读通讯录</button> <br>
+<button type="button" onclick="fmantv.machine_id( machine_id_ok, machine_id_err)">得到本机唯一id</button> <br>
+<!--
+<button type="button" onclick="phone_number_w()">写手机号</button> <br>
+-->
+<button type="button" onclick="fmantv.download_package('http://192.168.1.106/sword.zip', download_package_ok, download_package_err)">后台下载更新程序包</button> <br>
+<button type="button" onclick="fmantv.update(update_ok, update_err)">启动时自动更新程序</button> <br>
+</body>
+
+<script>
+function init_ok () {alert("init_ok");}
+function init_err (err) {alert("init_err " + err);}
+function uninit_ok () {alert("uninit_ok");}
+function uninit_err (err) {alert("uninit_err " + err);}
+function share_ok () {alert("share_ok");}
+function share_err (err) {alert("share_err " + err);}
+
+function gotFileEntry(fileEntry) {
+	fileEntry.createWriter(gotFileWriter, fail);
+}
+function gotFS(fileSystem) {
+    fileSystem.root.getFile("readme.txt", {create: true, exclusive: false}, gotFileEntry, fail);
+}
+function gotFileWriter(writer) {
+	writer.onwriteend = function(evt) {
+		alert("contents of file now 'some sample text'");
+		writer.truncate(11);
+		writer.onwriteend = function(evt) {
+			alert("contents of file now 'some sample'");
+			writer.seek(4);
+			writer.write(" different text");
+			writer.onwriteend = function(evt){
+				alert("contents of file now 'some different text'");
+			}
+		};
+	};
+	writer.write("some sample text");
+}
+function fail(error) {
+	alert("fail " +　error.code);
+}
+function local_file_w() {
+	window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, gotFS, fail);
+}
+////////////////////////////////
+
+function gotFS_r(fileSystem) {
+	fileSystem.root.getFile("readme.txt", null, gotFileEntry_r, fail);
+}
+
+function gotFileEntry_r(fileEntry) {
+	fileEntry.file(gotFile, fail_r);
+}
+
+function gotFile(file){
+	readDataUrl(file);
+	readAsText(file);
+}
+
+function readDataUrl(file) {
+	var reader = new FileReader();
+	reader.onloadend = function(evt) {
+		alert("Read as data URL");
+		alert(evt.target.result);
+	};
+	reader.readAsDataURL(file);
+}
+
+function readAsText(file) {
+	var reader = new FileReader();
+	reader.onloadend = function(evt) {
+		alert("Read as text");
+		alert(evt.target.result);
+	};
+	reader.readAsText(file);
+}
+
+function fail_r(evt) {
+	alert( "fail_r " + evt.target.error.code);
+}
+function local_file_r() {
+	window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, gotFS_r, fail);
+}
+
+///////////////////////
+function album_r() {
+	var pictureSource=navigator.camera.PictureSourceType;
+    var destinationType=navigator.camera.DestinationType;
+	
+// Called when a photo is successfully retrieved
+    //
+    function onPhotoDataSuccess(imageData) {
+      // Uncomment to view the base64-encoded image data
+      // console.log(imageData);
+
+      // Get image handle
+      //
+      //var smallImage = document.getElementById('smallImage');
+
+      // Unhide image elements
+      //
+      //smallImage.style.display = 'block';
+
+      // Show the captured photo
+      // The inline CSS rules are used to resize the image
+      //
+      //smallImage.src = "data:image/jpeg;base64," + imageData;
+	  alert("data:image/jpeg;base64," + imageData);
+    }	
+	
+// Called when a photo is successfully retrieved
+    //
+    function onPhotoURISuccess(imageURI) {
+      // Uncomment to view the image file URI
+      // console.log(imageURI);
+
+      // Get image handle
+      //
+      //var largeImage = document.getElementById('largeImage');
+
+      // Unhide image elements
+      //
+      //largeImage.style.display = 'block';
+
+      // Show the captured photo
+      // The inline CSS rules are used to resize the image
+      //
+      //largeImage.src = imageURI;
+	  alert(imageURI);
+    }	
+	
+	// Called if something bad happens.
+    //
+    function onFail(message) {
+      alert('Failed because: ' + message);
+    }	
+	
+	function getPhoto(source) {
+      // Retrieve image file location from specified source
+      navigator.camera.getPicture(onPhotoURISuccess, onFail, { quality: 50,
+        destinationType: destinationType.FILE_URI,
+        sourceType: source });
+    }	
+	
+	getPhoto(pictureSource.PHOTOLIBRARY);
+	getPhoto(pictureSource.SAVEDPHOTOALBUM);
+}
+
+////////////////////////
+function album_w(){
+}
+////////////////////////
+
+function phone_number_r(){
+   // find all contacts with 'Bob' in any name field
+	var options = new ContactFindOptions();
+	options.filter = "";
+	options.multiple=true;    // return multiple results
+	var fields = ["displayName", "phoneNumbers"];
+	navigator.contacts.find(fields, onSuccess, onError, options);
+
+	// onSuccess: Get a snapshot of the current contacts
+	function onSuccess(contacts) {
+      for (var i = 0; i < contacts.length; i++) {
+            // display phone numbers
+            for (var j = 0; j < contacts[i].phoneNumbers.length; j++) {
+                alert("Type: "      + contacts[i].phoneNumbers[j].type  + "\n" +
+                      "Value: "     + contacts[i].phoneNumbers[j].value + "\n" +
+                      "Preferred: " + contacts[i].phoneNumbers[j].pref);
+            }
+        }
+	}
+
+	// onError: Failed to get the contacts
+	function onError(contactError) {
+		alert('onError!');
+	}
+}
+/////////////////////////
+function phone_number_w(){
+}
+///////////////////////////
+function machine_id_ok(id) {
+	alert ( id );
+}
+function machine_id_err(err) {
+	alert ( err );
+}
+/////////////////////////
+function download_package_ok() {
+	alert ( "download_package_ok" );
+}
+function download_package_err(err) {
+	alert ( "download_package_err" );
+}
+/////////////////////////
+function update_ok(){
+	alert("update_ok");
+}
+
+function update_err(err){
+	alert("update_err "+err);
+}
+
+</script>
+
+
+</html>

@@ -1,0 +1,148 @@
+#picframe{
+    position: absolute;
+    z-index: 999;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background: #000;
+    height: 222px;
+}
+
+
+#picframe_type_wrapper{
+    height: 90px;
+    width: 100%;
+    position: relative;
+    background-color: #101010;
+}
+
+#picframe_type_wrapper ul{
+    height: 100%;
+    color: #ffffff;
+    width: 100%;
+}
+
+#picframe_type_wrapper ul > li{
+    font-size: 3em;
+}
+
+#picframe_wrapper{
+    position: relative;
+    /*bottom: 0;*/
+    height: 132px;
+    /*left: 17px;*/
+    width: 100%;
+}
+
+#picframe_wrapper ul{
+    /*background: #1c242a;*/
+}
+
+#picframe_wrapper ul li{
+    width: 94px;
+    height: 100%;
+    margin: 0 10px;
+}
+
+
+.framekuang{
+    position: relative;
+    background: url("../images/skin3/hexagon_black.png") no-repeat center;
+    width: 100%;
+    height: 100%;
+    line-height: 180px;
+    text-align: center;
+    background-size: 100% 106px;
+}
+
+.framekuang.fmselected{
+    background: url("../images/skin/xuanzhong.png") no-repeat center;
+    width: 140px;
+    height: 180px;
+}
+
+.framebgdiv{
+    /*background: url("../images/skin/fangkuangbeijign.png") no-repeat center;*/
+    background-size: 60% 45%;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+.framediv{
+    width: 100%;
+    height: 100%;
+
+}
+/*add by hbj 2014/10/20*/
+.pic_frame_selected{
+    background: url("../images/skin3/hexagon_selected.png") no-repeat center;
+    background-size: auto 80%;
+}
+#pic_list_div{
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    z-index: 1000;
+    display: none;
+    overflow-y: auto;
+}
+#pic_list_div>header{
+    height: 100px;
+    font-size: 3.8em;
+    color: #fff;
+    line-height: 100px;
+    background-color: rgba(27,24,40,.5);
+    position: relative;
+    text-align: center;
+}
+#pic_list_div>header>nav{
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    right: 0px;
+    top: 0px;
+    background: url("../images/skin3/pic_frame_close.png") no-repeat center center;
+}
+#pic_list_div>section{
+    padding-top: 22px;
+}
+#pic_list_div>section>div{
+    width: 33.333%;
+    height: 150px;
+    margin: 22px 0;
+    float: left;
+    position: relative;
+    background: url("../images/skin3/hexagon_gray.png") no-repeat center center;
+}
+#pic_list_div>section>div>div{
+    width: 93px;
+    height: 106px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform:translate(-50%,-50%);
+    transform:translate(-50%,-50%);
+    background-size: 90px 90px;
+}
+#pic_list_div>section>div>div>div{
+    height: 100%;
+    width:100%;
+}
+#picframe_scroller > ul > li:first-child{
+    margin-left: 18px;
+}
+#picframe_type_scroller{
+    margin-left: 123px;
+}
+#picframe_type_scroller li>div{
+    padding: 0 20px;
+}
+#picframe_type_scroller li{
+    margin: 0 30px;
+}
+#picframe_scroller li:first-child .framediv{
+    background-size: auto auto !important;
+}

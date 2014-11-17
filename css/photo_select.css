@@ -1,0 +1,51 @@
+#photo_select{
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    z-index: 999;
+/*    background: rgba(57,203,215,0.9);*/
+    text-align: center;
+    margin: 0 auto;
+    display: -webkit-box;
+    -webkit-box-align:center;
+}
+
+.show_photo_select{
+    bottom: 0;
+    display: block;
+}
+
+.hide_photo_select{
+    bottom: -100%;
+    display: none;
+}
+
+.photo_select_ul li{
+    font-size: 4em;
+    width: 176px;
+    height: 181px;
+    line-height: 181px;
+    text-align: center;
+    display: inline-block;
+    margin: 0 auto;
+    opacity: 0;
+}
+
+.photo_select_ul{
+    width: 100%;
+    margin: 0 auto;
+    display: block;
+    text-align: center;
+}
+
+.photo_select_ul li:nth-child(1){
+    background: url("../images/skin3/make/photo/from_p.png") no-repeat center;
+}
+
+.photo_select_ul li:nth-child(2){
+    background: url("../images/skin3/make/photo/from_xc.png") no-repeat center;
+}
+
+.photo_select_ul li:nth-child(3){
+    background: url("../images/skin3/make/photo/photo_cancel.png") no-repeat center;
+}

@@ -1,0 +1,77 @@
+#watermarkedit{
+    position: absolute;
+    z-index: 999;
+    left: 0;
+    right: 0;
+    width: 100%;
+    background: #1c242a;
+    height: 180px;
+    text-align: center;
+}
+#watercolor_wrapper{
+    width: 60%;
+    z-index: 999;
+    height: 54px;
+    margin: 0 auto;
+    position: absolute;
+    left: 20%;
+    top:100px;
+}
+
+#watercolor_wrapper li{
+    width: 54px;
+    height: 100%;
+
+}
+
+#watercolor_wrapper li > div{
+    width: 52px;
+    height: 54px;
+}
+
+#watercolor_wrapper li > div > div{
+    width: 100%;
+    height: 100%;
+}
+
+.hidewatermarkedit{
+    bottom: -100%;
+    display: none;
+}
+
+.showwatermarkedit{
+    bottom: 30px;
+    display: block;
+}
+
+#watermark_alpha{
+    width: 90%;
+}
+
+.watermark_ok{
+    background: url("../images/skin/yinzhang-baocun.png") no-repeat center;
+    width: 60px;
+    height: 60px;
+    background-size: auto 100%;
+}
+
+.watermark_ok_mright{
+    margin-right: 5%;
+    margin-top: 50px;
+}
+
+.watermark_close_mleft{
+    margin-left: 5%;
+    margin-top: 50px;
+}
+
+.watermark_close{
+    background: url("../images/skin/yinzhang-bubaocun.png") no-repeat center;
+    width: 60px;
+    height: 60px;
+    background-size: auto 100%;
+}
+#watermarkMask{
+    width: 90%;
+    left: 5%;
+}

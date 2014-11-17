@@ -1,0 +1,47 @@
+<div id="font_ui">
+
+    <input id="fontHeightInput" role="util" attr="rowspacing" class="rotate90 inpleft" type="range" min="1" max="50" step="1">
+    <div id="fontHeightMask" class="input_mask hide font"></div>
+
+    <input id="fontOpacityInput" role="util" attr="opacity" class="inptop" type="range" min="0" max="1" step="0.01">
+    <div id="fontOpacityMask" class="input_mask hide font"></div>
+
+    <input id="fontSpacingInput" role="util" attr="spacing" class="rotate90 inpright" type="range" min="1" max="50" step="2">
+    <div id="fontSpacingMask" class="input_mask hide font"></div>
+
+    <input id="fontSizeInput" role="util" attr="fontsize" class="inpbottom" type="range" min="10" max="400" step="1">
+    <div id="fontSizeMask" class="input_mask hide font"></div>
+
+<div id="fontColor" style="" role="util">
+    <div id="font_wrapper" class="wrapper">
+        <div id="font_scroller" class="scroller">
+            <ul>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<!-- <div id="fontAlign" class="font_text_align" roll="util" on="false"></div> -->
+<div id="fontAlign" class="text_align_det" style="display: none" role="util">
+    <ul>
+        <li class="fanzhuan"  on="false"></li>
+        <li class="jingxiang" on="false"></li>
+        <li class="align-left" on="false"></li>
+        <li class="align-center" on="false"></li>
+        <li class="align-right" on="false"></li>
+    </ul>
+</div>
+</div>
+<div id="font_tool">
+    <div>
+        <ul style="height:100%;">
+            <li class="font_color_icon" data-target="#fontColor"></li>
+            <li class="font_opacity_icon" data-target="#fontOpacityInput"></li>
+            <li class="font_size_icon" data-target="#fontSizeInput"></li>
+            <li class="font_align_icon" data-target="#fontAlign"></li>
+            <li class="font_spacing_icon" data-target="#fontSpacingInput"></li> 
+            <li class="font_height_icon" data-target="#fontHeightInput"></li>
+        </ul>
+    </div>
+</div>
+<div class="back_menu"><nav><nav></nav></nav></div>

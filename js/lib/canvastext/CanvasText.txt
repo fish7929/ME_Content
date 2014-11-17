@@ -1,0 +1,10 @@
+canvas	The canvas element where you want to draw to.	Canvas element.	Mandatory
+context	The context element of your canvas property.	Canvas context element.	Mandatory
+fontFamily	Default font family.	String	Default: "Verdana"
+fontSize	Default font size.	String	Default: "12px"
+fontWeight	Default font weight.	String	Default: "normal"
+fontColor	Default font color.	String containing an hexadecimal color.	Default: "#000"
+fontStyle	Default Font style	String	Default: "normal"
+textShadow	Default text shadow	String	Default: "none"
+textBaseline	Default baseline being used when drawing text.	String.	Default: "alphabetic"
+lineHeight	Default line height (space between lines).	Integer	Default: 16

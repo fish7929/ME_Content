@@ -1,0 +1,140 @@
+#watermark{
+    position: absolute;
+    z-index: 999;
+    left: 0;
+    right: 0;
+    width: 100%;
+    /*height: 240px;*/
+}
+
+/***********************水印******************************/
+
+
+#watermark_type_wrapper{
+    height: 90px;
+    width: 100%;
+}
+
+#watermark_type_wrapper ul{
+    height: 90px;
+    line-height: 60px;
+    background: #1c242a;
+    color: #ffffff;
+    width: 100%;
+    background: #111111;
+}
+
+.watermark_type_selected{
+    border-bottom: 4px solid #ffef3d;
+    color: #ffef3d;
+}
+
+.watermark_type_noselected{
+/*    color: #ffffff;
+    border-bottom: 2px solid #4e5255;*/
+}
+
+#watermark_type_wrapper ul > li{
+    width: 100px;
+    font-size: 3em;
+    cursor: pointer;
+    float: none;
+    display: inline-block;
+    line-height: 90px;
+}
+#watermark_type_wrapper ul > li:first-child{
+    margin-right: 50px;
+}
+#watermark_type_wrapper ul > li:last-child{
+    margin-left: 50px;
+}
+
+#watermark_wrapper{
+    height: 132px;
+    position: relative;
+    background: rgba(0,0,0,.9);
+}
+
+/*#watermark_wrapper ul{
+    background: #1c242a;
+}*/
+
+#watermark_wrapper ul li{
+    width: 97px;
+    height: 100%;
+    margin: 0 10px;
+}
+
+.showwatermark{
+    bottom: 0px;
+    display: block;
+}
+
+.hidewatermark{
+    bottom: -100%;
+    display: none;
+}
+
+.watermarkbg{
+    position: relative;
+    background: url("../images/skin3/hexagon_black.png") no-repeat center;
+    width: 100%;
+    height: 100%;
+    background-size: auto 80%;
+}
+
+.watermarkbg  div{
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 60px 60px;
+    width: 100%;
+    height: 100%;
+}
+#watermark_scroller li:first-child .watermarkbg>div{
+    background-size: auto auto;
+}
+.watermarkbg.active{
+    background: url("../images/skin3/hexagon_selected.png") no-repeat center,
+    url("../images/skin3/hexagon_black.png")  no-repeat center;
+background-size: 97px 110px;
+}
+/*add by hbj 2014/10/18*/
+#watermark_type_scroller{
+    width: 100%;
+}
+#watermark_opacity{
+    width: 100%;
+    height: 100px;
+    position: relative;
+    visibility: hidden;
+    background: rgba(0,0,0,.8);
+}
+#watermark_opacity > input{
+    position: absolute;
+    display: block;
+}
+#watermark_color{
+    height: 100px;
+    width: 100%;
+    position: relative;
+    visibility: hidden;
+    border-bottom: 1px solid #232323;
+    background: rgba(0,0,0,.8);
+}
+#watermark_color li {
+    width: 56px;
+    height: 100%;
+    margin: 0 6px;
+}
+#watermark_color li div {
+    width: 100%;
+    height: 100%;
+}
+#watermark_color li > div {
+    -webkit-mask-image: url("../images/skin3/hexagon_mask.png");
+}
+#color_scroller{
+    height: 62px;
+    width: 100%;
+    margin-top: 19px;
+}
