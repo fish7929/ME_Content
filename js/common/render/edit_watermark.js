@@ -51,7 +51,10 @@ define([
         this.isDelete = true;
         this.isScale = true;
         this.isRotation = true;
-        this.setIsHScale(true);
+		if (this.type2 == "shape")
+		{
+			this.setIsHScale(true);
+		}
 
         this.x = createjs.wkCanvas.width / 2;
         this.y = createjs.wkCanvas.height / 2;
@@ -105,6 +108,8 @@ define([
 
 			var item = items[1];
 
+			item = item.clone();
+
 			item.set("x_scale", undefined);
 			item.set("y_scale", undefined);
 
@@ -155,6 +160,12 @@ define([
             self.bitmap.sourceRect = rect;
 
             self.bitmap.cache(0,0,img.width,img.height);
+
+			if (this.parent)
+			{
+				scaleX = VS.vx(scaleX);
+				scaleY = VS.vy(scaleY);
+			}
 
             //默认缩到
             self.bitmap.scaleX = scaleX;

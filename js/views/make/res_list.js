@@ -41,7 +41,18 @@
 
 			var pic_html = "<img src=\"" + pic_url + "\" />";
 
-			result += "<li><div class='watermarkbg'><div attr='watermark' imgUrl='"+ pic_url+"' " +
+			var type2 = "";
+
+			if (res_list[i].get("category") == "1")
+			{
+				type2 = "watermark";
+			}
+			else if (res_list[i].get("category") == "3")
+			{
+				type2 = "shape";
+			}
+
+			result += "<li><div class='watermarkbg'><div attr='watermark' imgUrl='"+ pic_url+"' type2='" + type2 + "' " +
 			"style='background-image:url(\""+ pic_url +"\") '></div></div></li>";
 		}
 
@@ -180,7 +191,8 @@
 			);
 	}
 
-	ResListClass.prototype.list_watermark = function(){
+	// 加载形状列表
+	ResListClass.prototype.list_watermark = function(type){
 		$("#picframe_type_scroller").removeClass("watermark_type_selected");
 		$("#pic_list_div").show();
 		var html = "";
@@ -188,7 +200,7 @@
 			var pic_url = "http://me.gli.cn/filestore/res/" + app.watermark_list[i].get("item_val");
 
 			var pic_html = "<img src=\"" + pic_url + "\" />";
-			html +=  "<div><div><div attr='watermark' imgUrl='"+ pic_url+"' " +
+			html +=  "<div><div><div attr='watermark' imgUrl='"+ pic_url+"' type2='" + type + "' " +
 				"style='background:url(\""+ pic_url +"\") no-repeat center;background-size: 90px 90px; '></div></div></div>";
 		}
 		$("#pic_list_div>section").html(html);

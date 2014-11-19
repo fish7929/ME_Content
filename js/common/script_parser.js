@@ -267,7 +267,7 @@ define([
 
         var alpha = item.get("item_opacity") / 100;
 
-        text = new createjs.EditText(context,font,color,alpha,200);
+        text = new createjs.EditText(context,font,color,alpha,item.get("item_width"));
 
 		if (font_valight)
 		{
@@ -278,7 +278,7 @@ define([
 		text.userData.set("item_val", context);
 
         text.setAlign(item.get("font_halign"));
-        text.setLetterSpacing(item.get("font_dist"));
+        //text.setLetterSpacing(item.get("font_dist"));
         text.setLineHeight(item.get("line_height")||0);
 
         text.resetRegPosition();
@@ -353,7 +353,25 @@ define([
 	 * 如果item.objects_list != null, 则表示这个对象是签章对象
      */
     function createWaterMarkObject(item){
-        var wm = new createjs.EiditWaterMark();
+
+		var type2 = undefined;
+
+		var c_type = item.get("frame_style");
+
+        if(c_type == 1)	// 印花
+		{
+			type2 = "watermark";
+        }
+		else if(c_type == 2)	// 签章
+		{
+			type2 = "signature";
+        }
+		else if(c_type == 3)	// 形状
+		{
+			type2 = "shape";
+        }
+
+        var wm = new createjs.EiditWaterMark(type2);
         wm.userData = item;
 
         wm.x = item.get("item_left");
@@ -366,14 +384,12 @@ define([
 
         var cntype = item.get("item_cntype") + "";
 
-        if(cntype == "2"){
-            wm.setImageUrl(item.get("item_val"));
+		wm.setImageUrl(item.get("item_val"));
 
-			if (item.get("item_filter") == "color_filter")
-			{
-				wm.changeColor(item.get("item_filter_val"));
-			}
-        }
+		if (item.get("item_filter") == "color_filter")
+		{
+			wm.changeColor(item.get("item_filter_val"));
+		}
 
 		if (item.get("group_ID") != 0)
 		{

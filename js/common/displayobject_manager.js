@@ -268,6 +268,7 @@ define(["jquery"],function($){
 
                     break;
             }
+
             topEvent.trigger(EventConstant.SHOW_OR_HIDE_MENU,obj);
         },
 

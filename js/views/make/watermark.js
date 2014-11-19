@@ -28,7 +28,8 @@ define([
         this.$el.html(this.template);
         this.parentView = parent;
         this.parentView.MenuReset(this.$el);
-
+		//添加一个属性
+		this.changeWaterMark = null;
         this.picUL = null;
 
         this.key = "signature";
@@ -61,6 +62,8 @@ define([
 
             this.currentSelectTab = typeUl.find("li:first");
             this.currentSelectTab.addClass("watermark_type_selected");
+			//定义一个属性来做回调方法
+			this.changeWaterMark = changeWaterMark;
 
             changeWaterMark.call(this,keys[0]);
 
@@ -124,6 +127,8 @@ function onPicClick(e){
 	{
 		var imgUrl = div.attr("imgUrl");
 		var params = div.attr("params");
+		// control_type2
+		var c_type2 = div.attr("type2");
 		var displayObjects = DisplayObjectManager.displayObjects;
 		var obj;
 		var watermark_key = this.key;
@@ -132,6 +137,21 @@ function onPicClick(e){
 		if (params) {
 			type2 = "signature";
         }
+		else
+		{
+			if (typeof(c_type2) == "undefined")
+			{
+				type2 = "watermark";
+			}
+			else if (c_type2 == "watermark")
+			{
+				type2 = "watermark";
+			}
+			else if (c_type2 == "shape")
+			{
+				type2 = "shape"
+			}
+		}
 
         if(div.attr("imgurl").indexOf("pic_frame_list.png")>-1)
 		{
@@ -161,10 +181,10 @@ function onPicClick(e){
 					g_SignatureListClass.list_watermark();
 					break;
 				case "stamp" :
-					g_ResListClass.list_watermark();
+					g_ResListClass.list_watermark("watermark");
 					break;
 				case "shape" :
-					g_ResListClass.list_watermark();
+					g_ResListClass.list_watermark("shape");
 					break;
 				default: 
 					'';
@@ -201,23 +221,34 @@ function onPicClick(e){
 								
 								var m = new createjs.EiditWaterMark(type2);
 
+								// type2是否相同
+								var has_same_type2 = false;
+
+								if (is_not_signature)
+								{
+									has_same_type2 = app.makeView.opObject.type2 == m.type2;
+								}
+
 								var text_rotation = 0;
 
 								if (is_selected_form)
 								{
-									if (!is_not_signature)
+									if (!is_not_signature)		// 是签章
 									{
-										m.x = app.makeView.opObject.x;
-										m.y = app.makeView.opObject.y;
-										m.userData.set("item_left", VS.rvx(m.x));
-										m.userData.set("item_top", VS.rvy(m.y));
-										
-										m.rotation = app.makeView.opObject.rotation;
-										m.userData.set("rotate_angle",m.rotation);
-										text_rotation = m.rotation;
+										if (has_same_type2)
+										{
+											m.x = app.makeView.opObject.x;
+											m.y = app.makeView.opObject.y;
+											m.userData.set("item_left", VS.rvx(m.x));
+											m.userData.set("item_top", VS.rvy(m.y));
 											
-										m.userData.set("x_scale", app.makeView.opObject.userData.get("x_scale"));
-										m.userData.set("y_scale", app.makeView.opObject.userData.get("y_scale"));
+											m.rotation = app.makeView.opObject.rotation;
+											m.userData.set("rotate_angle",m.rotation);
+											text_rotation = m.rotation;
+												
+											m.userData.set("x_scale", app.makeView.opObject.userData.get("x_scale"));
+											m.userData.set("y_scale", app.makeView.opObject.userData.get("y_scale"));
+										}
 									}
 								}
 
@@ -228,9 +259,12 @@ function onPicClick(e){
 								
 								if (is_selected_form)
 								{
-									if (!is_not_signature)
+									if (!is_not_signature)		// 是签章
 									{
-										app.makeView.opObject.closeHandle();
+										if (has_same_type2)
+										{
+											app.makeView.opObject.closeHandle();
+										}
 									}
 								}
 
@@ -251,7 +285,7 @@ function onPicClick(e){
 
 								if (is_selected_form)
 								{
-									if (is_not_signature)
+									if (is_not_signature)			// 不是签章
 									{
 										m.x = app.makeView.opObject.x;
 										m.y = app.makeView.opObject.y;
@@ -272,7 +306,7 @@ function onPicClick(e){
 
 								if (is_selected_form)
 								{
-									if (is_not_signature)
+									if (is_not_signature)		// 不是签章
 									{
 										app.makeView.opObject.closeHandle();
 									}
@@ -387,20 +421,31 @@ function onPicClick(e){
 
 				var m = new createjs.EiditWaterMark(type2);
 
+				// type2是否相同
+				var has_same_type2 = false;
+
+				if (is_not_signature)
+				{
+					has_same_type2 = app.makeView.opObject.type2 == m.type2;
+				}
+
 				if (is_selected_form)
 				{
 					if (is_not_signature)
 					{
-						m.x = app.makeView.opObject.x;
-						m.y = app.makeView.opObject.y;
-						m.userData.set("item_left", VS.rvx(m.x));
-						m.userData.set("item_top", VS.rvy(m.y));
-						
-						m.rotation = app.makeView.opObject.rotation;
-						m.userData.set("rotate_angle",m.rotation);
+						if (has_same_type2)
+						{
+							m.x = app.makeView.opObject.x;
+							m.y = app.makeView.opObject.y;
+							m.userData.set("item_left", VS.rvx(m.x));
+							m.userData.set("item_top", VS.rvy(m.y));
 							
-						m.userData.set("x_scale", app.makeView.opObject.userData.get("x_scale"));
-						m.userData.set("y_scale", app.makeView.opObject.userData.get("y_scale"));
+							m.rotation = app.makeView.opObject.rotation;
+							m.userData.set("rotate_angle",m.rotation);
+								
+							m.userData.set("x_scale", app.makeView.opObject.userData.get("x_scale"));
+							m.userData.set("y_scale", app.makeView.opObject.userData.get("y_scale"));
+						}
 					}
 				}
 
@@ -412,7 +457,10 @@ function onPicClick(e){
 				{
 					if (is_not_signature)
 					{
-						app.makeView.opObject.closeHandle();
+						if (has_same_type2)
+						{
+							app.makeView.opObject.closeHandle();
+						}
 					}
 				}
 
@@ -442,7 +490,7 @@ function onPicClick(e){
 
         for(var i = 0;i < us.length;i++){
             var o = us[i];
-            html += "<li><div class='watermarkbg'><div attr='watermark' imgUrl='"+ o.url+"' " +
+            html += "<li><div class='watermarkbg'><div attr='watermark' imgUrl='"+ o.url+"' type2='watermark' " +
             "style='background-image:url(\""+ o.url +"\") '></div></div></li>";
         }
 
@@ -478,6 +526,19 @@ function onPicClick(e){
     //         self.picScroll.refresh();
     //     },0);
     // }
+	setWaterMarkSelected (key);
+
+}
+
+function setWaterMarkSelected (key) {
+	/**
+	*所有该div的父控件li的父控件ul所有的li
+	*///$("div[key='SchoolName']")
+	$("div[key='"+key+"']").parent().parent().find("li").removeClass("watermark_type_selected");
+	$("div[key='"+key+"']").parent().parent().find("li").addClass("watermark_type_noselected");
+	//当前li类型添加
+	$("div[key='"+key+"']").parent().removeClass("watermark_type_noselected");
+	$("div[key='"+key+"']").parent().addClass("watermark_type_selected");
 
 }
 

@@ -159,7 +159,7 @@ define([
             $('#fontColor li:eq(1)').on("tap", function (e) {
                 self.photoClick(e);
             })
-
+//$("#font_ui [role='util']").hide();
             //工具栏点击事件
             $("#font_tool li").on("tap", function (e) {
                 $("#font_tool").find(".active").removeClass("active");

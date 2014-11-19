@@ -87,7 +87,8 @@ define([
 
         //是否保留数据
         KeepData : false,
-
+		//判断水印显示
+		type2 : null,
         initialize: function () {
             $(this.el).html(this.template);
         },
@@ -195,10 +196,18 @@ define([
             });
 
             topEvent.bind(EventConstant.SHOW_OR_HIDE_MENU,function (e,data) {
-				//alert("data" + data);
+				self.type2 = data.type2;
+				if(self.type2 == "watermark"){
+					self.type2 = "stamp";
+				}
+	
                 if (self.isFullPreview) {
                     self.isFullPreview = false;
                     self.showCurMenu();
+					//点击不同类型水印，选中不同类型
+					if (self.type2){
+						self.waterMark.changeWaterMark(self.type2);
+					}
                 } else {
                     setTimeout(function () {
                         if (!DisplayObjectManager.clickedObject) {
@@ -208,6 +217,13 @@ define([
                             self.scaleNormalCanvas.apply(self);
                         }
                         DisplayObjectManager.clickedObject = false;
+						//点击不同类型水印，选中不同类型
+						if (self.type2){
+							self.waterMark.changeWaterMark(self.type2);
+						}
+                        //隐藏二级菜单,文字切换再次点击的时候
+                        $("#font_ui").css({visibility:"hidden"});
+						
                     }, 100);
                 }
             });
@@ -687,7 +703,6 @@ define([
          * 显示水印编辑菜单
          */
         showWaterMark : function(){
-			//alert("showaaa");
 
             this.switchCurMenuTo(this.waterMark);
         },
@@ -708,6 +723,8 @@ define([
 
         //缩放canvas与菜单适应
         scaleSmallCanvas: function () {
+
+			return;
 
             //设备高度
             var deviceHeight = document.body.clientHeight;
