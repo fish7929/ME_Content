@@ -45,6 +45,8 @@ define([
         scrollId : "fall_wrapper",
         
         initScrollPosition : $("#pageContent").attr("data-position") || 0,
+
+
 		initialize : function(){
             $(this.el).html(this.template);
             var self = this;
@@ -75,7 +77,7 @@ define([
 //                    e.preventDefault();
 //                }
                 var tname = target.tagName;
-                while (target.id == undefined || target.id=="") {
+                while (target.parentNode && (target.id == undefined || target.id=="")) {
                     target = target.parentNode;
                 }
 
@@ -100,40 +102,35 @@ define([
 	    },
 
         pageIn : function(){
-        		$(this.el).find("img").css({"visibility":"initial"});
-            if ( ! this.dataload[this.getCurSquareIndex()] ){
+            if (!this.dataload[this.getCurSquareIndex()]) {
                 this.loadScrollData();
                 this.dataload[this.getCurSquareIndex()] = true;
             }
             else {
                 $(this.getCurAreaId()).masonry('reloadItems');
             }
-            
-           	$("#"+self.scrollId).scrollTop(self.initScrollPosition);
+						
+						this.keepDate = true;
+
         },
 	    render : function(options){
-
-            this.constructor.__super__.render.apply(this,[options]);
-
-            if(!this.inited){
+            this.constructor.__super__.render.apply(this, [options]);
+            if (!this.inited) {
                 this.init();
                 this.inited = true;
             }
-
             /* add mistery */
             this.initData();
             /* add mistery end */
 	    },
 	    remove : function(){
-	    	$("#pageContent").attr("data-position",this.initScrollPosition);
-	    	//$(this.el).detach();
-	    	$(this.el).find("img").css({"visibility":"hidden"});
+        $(this.el).detach();
 	    },
         init : function(){
             var self = this;
             setTimeout(function(){
 
-                $(".tomakebn img").on("tap",function(){
+                $(".tomakebn img").on("click",function(){
                     app.routers.appRouter.navigate("fma/make/"+(parseInt(Math.random()*10)>=5?"94ae33cda0e990c7":"d19c4b38114cd2d1"),{replace:true,trigger:true});
                 });
 
@@ -436,10 +433,9 @@ define([
                 img.src = imgUrl;
 
                 if(i == 0){
-                    ulHtml += "<li class='dotli_selected' style='width: "+p+"%'><span></span></li>";
-                    //banner_point
+                    ulHtml += "<li class='dotli_selected' style='width: "+p+"%'></li>";
                 }else{
-                    ulHtml += "<li class='dotli_select' style='width: "+p+"%'><span></span></li>";
+                    ulHtml += "<li style='width: "+p+"%'></li>";
                 }
                 $("#banner_ul").html(ulHtml);
             }
@@ -463,7 +459,7 @@ define([
 
                     var i = lis.size();
                     while (i--) {
-                        lis.get(i).className = 'dotli_select';
+                        lis.get(i).className = ' ';
                     }
                     if(lis.get(pos)){
                         lis.get(pos).className = 'dotli_selected';

@@ -151,13 +151,12 @@
 }
 
 .showmakeheader{
-    top: 0px;
-    display: block;
+    top: 0px !important;
+    display: block !important;
 }
 
 .hidemakeheader{
-    top: -100%;
-    display: none;
+
 }
 
 
@@ -167,8 +166,7 @@
 }
 
 .hidemakefooter{
-    bottom: -100%;
-    display: none;
+    display: block;
 }
 
 #fma_a_make > footer > div{
@@ -254,8 +252,7 @@
 }
 
 .hidefontui,.hidemaskui,.hidepicframe,.hidemakepic{
-    bottom: -100%;
-    display: none;
+    display: block;
 }
 
 #pic_wrapper{
@@ -564,10 +561,10 @@ input[type="range"] {
 /************蒙罩编辑*************/
 #makemask{
     position: absolute;
-    height: 313px;
+    height: 386px;
     z-index: 8;
     width: 100%;
-    background: #000;
+    /*background: #000;*/
 }
 
 #mask_on{
@@ -626,8 +623,12 @@ input[type="range"] {
     width: 100%;
     /*bottom: 85px;*/
     height: 132px;
-    left: 18px;
+    left: 0px;
     position: relative;
+    background: #000000;
+
+    margin: 0;
+    padding: 0;
 }
 
 #mask_scroller li{
@@ -726,6 +727,7 @@ input[type="range"] {
     text-align: left;
     text-indent: 1em;
 }
+/*
 .save_share_bu{
     width:100%;
 }
@@ -749,6 +751,7 @@ input[type="range"] {
 .save_share_bu table tr td img{
     width:100%;
 }
+*/
 .ui-checkbox{
     float:left;
     margin-right:14px;
@@ -803,6 +806,7 @@ input[type="range"] {
     height: 90px;
 }
 .make_mask_inputdiv_div{
+    margin-top: 72px;
     background: #000;
     border-bottom:1px solid #232323;
 }
@@ -891,9 +895,14 @@ input[type="range"] {
     font-size:3.4em;
     color:#ffffff;
 }*/
+#setting_about{
+		position:absolute;
+}
 #feedback{
-    margin:auto;
+		position:absolute;
     width:100%;
+    margin:auto;
+    background-color:#1d1d1d;
 }
 #feedback > section {
     margin-top: 80px;
@@ -944,6 +953,7 @@ input[type="range"] {
     text-shadow:none;
     box-sizing: border-box;
     
+    overflow:hidden;
     color:#fff;
 }
 #feedback #share{
@@ -988,7 +998,7 @@ input[type="range"] {
     position: absolute;
     top: 0px;
     left: 0px;
-    z-index: 11;
+    z-index: 99;
     background: #101010;
 }
 .back_menu>nav>nav{
@@ -1001,7 +1011,7 @@ input[type="range"] {
     top: 19px;
     left: 19px;
     cursor: pointer;
-    z-index: 10;
+    z-index: 98;
     background: url(../images/skin3/back_menu.png) no-repeat center center #262626;
 }
 .back_menu{
@@ -1036,6 +1046,7 @@ input[type="range"] {
     -webkit-transform: translateY(-50%);
     transform: translateY(-50%);
 }
+/*
 #share_div{
     position: absolute;
     height: 100%;
@@ -1061,9 +1072,7 @@ input[type="range"] {
     width: 100%;
 }
 
-/*
-* web分享窗口css
-*/
+
 
 .share_div_box{
     background:#232a30;
@@ -1095,9 +1104,39 @@ input[type="range"] {
     -webkit-transform:translateX(-50%);
     background: url(../images/skin3/make/save/allow.png);
 }
+*/
 #makeheader{
-    display: none;
+    display: block;
 }
 #makefooter{
-    display: none;
+    display: block;
+}
+
+.make-foreground,.make-background{
+    width: 84px;
+    height: 55px;
+    background-repeat: no-repeat;
+    float: left;
+}
+
+.make-background{
+    background: url("../images/skin/make/beijing-1.png");
+}
+
+.make-foreground{
+    background: url("../images/skin/make/qianjing-2.png");
+}
+
+.make-background.active{
+    background: url("../images/skin/make/beijing-2.png");
+}
+
+.make-foreground.active{
+    background: url("../images/skin/make/qianjing-1.png");
+}
+
+.fore-back-div{
+    position: absolute;
+    bottom: 330px;
+    left: 15px;
 }

@@ -336,6 +336,16 @@ define([
         var leftMir = mir.indexOf("left") == -1 ? "" : "left",
             topMir = mir.indexOf("top") == -1 ? "" : "top";
 
+		if (dir  == "left" && leftMir == dir)
+		{
+			dir = "nleft";
+		}
+
+		if (dir  == "top" && topMir == dir)
+		{
+			dir = "ntop";
+		}
+
         switch (dir){
             case "left":
 				this.b_jingxiang = true;
@@ -362,7 +372,7 @@ define([
         var m = leftMir;
         if(m){
             if(topMir){
-                m += "," + top;
+                m += "," + topMir;
             }
         }else{
             m = topMir;
@@ -391,6 +401,8 @@ define([
 
     //设置字间距
     p.setLetterSpacing = function(letterSpacing) {
+//        console.log("letter");
+//        console.log(letterSpacing)
         this.text.letterSpacing = letterSpacing;
         this.userData.set("font_dist",letterSpacing);
     };
@@ -543,7 +555,7 @@ define([
 		}
 		else
 		{
-			this.setLineWidth(VS.rvx(screen_width));
+			this.setLineWidth(screen_width);
 		}
 	}
 
@@ -616,9 +628,9 @@ define([
 			}
 		}
 
-		console.log("resetRegPosition: "
-			+ this.text.regX + ", " + this.text.regY + ", "
-			+ this.text.x + ", " + this.text.y);
+//		console.log("resetRegPosition: "
+//			+ this.text.regX + ", " + this.text.regY + ", "
+//			+ this.text.x + ", " + this.text.y);
     };
 
 	// 设置文本对齐方式

@@ -23,6 +23,7 @@ define([
         this.closeBtn = $("#watermarkedit_on");
 
         this.parentView = parent;
+        this.parentView.MenuReset(this.$el);
 
         this.$el.html(this.template);
 
@@ -134,15 +135,17 @@ define([
 			this.cancel_alpha = obj.current_alpha;
         }
 
-        this.$el.removeClass("hidewatermarkedit");
-        this.$el.addClass("showwatermarkedit");
+//        this.$el.removeClass("hidewatermarkedit");
+//        this.$el.addClass("showwatermarkedit");
+        this.parentView.MenuIn(this.$el);
         this.closeBtn.css({display:"block"});
     };
 
     WaterMarkEdit.prototype.hide = function(){
         //console.log("hide")
-        this.$el.removeClass("showwatermarkedit");
-        this.$el.addClass("hidewatermarkedit");
+        this.parentView.MenuOut(this.$el);
+//        this.$el.removeClass("showwatermarkedit");
+//        this.$el.addClass("hidewatermarkedit");
         this.closeBtn.css({display:"none"});
 
 		this.cancel_color = null;

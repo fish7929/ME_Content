@@ -1,0 +1,330 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="64196334-b428-48eb-a5c1-2f5a8315f092" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/images/skin3/bg-cehua.png" afterPath="$PROJECT_DIR$/images/skin3/bg-cehua.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/images/skin3/make/save/douban.png" afterPath="$PROJECT_DIR$/images/skin3/make/save/douban.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/images/skin3/make/save/kongjian.png" afterPath="$PROJECT_DIR$/images/skin3/make/save/kongjian.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/images/skin3/make/save/pengyouquan.png" afterPath="$PROJECT_DIR$/images/skin3/make/save/pengyouquan.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/images/skin3/make/save/qq.png" afterPath="$PROJECT_DIR$/images/skin3/make/save/qq.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/images/skin3/make/save/success.png" afterPath="$PROJECT_DIR$/images/skin3/make/save/success.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/images/skin3/make/save/xinlang.png" afterPath="$PROJECT_DIR$/images/skin3/make/save/xinlang.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/routers/AppRouter.js" afterPath="$PROJECT_DIR$/js/routers/AppRouter.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/views/app.js" afterPath="$PROJECT_DIR$/js/views/app.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/css/base.css" afterPath="$PROJECT_DIR$/css/base.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/common/render/baseedit.js" afterPath="$PROJECT_DIR$/js/common/render/baseedit.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/fmantv/cordova-2.8.0.js" afterPath="$PROJECT_DIR$/js/fmantv/cordova-2.8.0.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/common/displayobject_manager.js" afterPath="$PROJECT_DIR$/js/common/displayobject_manager.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/lib/easeljs-0.7.1.min.js" afterPath="$PROJECT_DIR$/js/lib/easeljs-0.7.1.min.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/common/render/edit_bitmap.js" afterPath="$PROJECT_DIR$/js/common/render/edit_bitmap.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/common/render/edit_maskrect.js" afterPath="$PROJECT_DIR$/js/common/render/edit_maskrect.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/common/render/edit_text.js" afterPath="$PROJECT_DIR$/js/common/render/edit_text.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/common/render/edit_watermark.js" afterPath="$PROJECT_DIR$/js/common/render/edit_watermark.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/common/render/eventconstant.js" afterPath="$PROJECT_DIR$/js/common/render/eventconstant.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/views/fma_a_display.js" afterPath="$PROJECT_DIR$/js/views/fma_a_display.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/views/make/fma_a_make.js" afterPath="$PROJECT_DIR$/js/views/make/fma_a_make.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/views/make/fma_a_save.js" afterPath="$PROJECT_DIR$/js/views/make/fma_a_save.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/views/nav/fma_a_slider.js" afterPath="$PROJECT_DIR$/js/views/nav/fma_a_slider.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/views/fma_a_square.js" afterPath="$PROJECT_DIR$/js/views/fma_a_square.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/templates/fma_ui_mask.html" afterPath="$PROJECT_DIR$/js/templates/fma_ui_mask.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/templates/make/fma_ui_save.html" afterPath="$PROJECT_DIR$/js/templates/make/fma_ui_save.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/templates/setting/fma_ui_setting_about.html" afterPath="$PROJECT_DIR$/js/templates/setting/fma_ui_setting_about.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/common/api/fmacapi.interface.min.js" afterPath="$PROJECT_DIR$/js/common/api/fmacapi.interface.min.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/fmantv/fmantv.js" afterPath="$PROJECT_DIR$/js/fmantv/fmantv.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/templates/font_ui.html" afterPath="$PROJECT_DIR$/js/templates/font_ui.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/views/make/font_ui.js" afterPath="$PROJECT_DIR$/js/views/make/font_ui.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/views/make/footer.js" afterPath="$PROJECT_DIR$/js/views/make/footer.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.html" afterPath="$PROJECT_DIR$/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/main.js" afterPath="$PROJECT_DIR$/js/main.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/css/make.css" afterPath="$PROJECT_DIR$/css/make.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/views/make/mask_ui.js" afterPath="$PROJECT_DIR$/js/views/make/mask_ui.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/views/make/pic_frame.js" afterPath="$PROJECT_DIR$/js/views/make/pic_frame.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/config/pic_frames.js" afterPath="$PROJECT_DIR$/js/config/pic_frames.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/views/make/pic_scroll.js" afterPath="$PROJECT_DIR$/js/views/make/pic_scroll.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/common/renderer.js" afterPath="$PROJECT_DIR$/js/common/renderer.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/views/make/res_list.js" afterPath="$PROJECT_DIR$/js/views/make/res_list.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/css/save.css" afterPath="$PROJECT_DIR$/css/save.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/common/script_parser.js" afterPath="$PROJECT_DIR$/js/common/script_parser.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/css/slider.css" afterPath="$PROJECT_DIR$/css/slider.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/css/square.css" afterPath="$PROJECT_DIR$/css/square.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/views/make/text_input_ui.js" afterPath="$PROJECT_DIR$/js/views/make/text_input_ui.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/templates/text_ui.html" afterPath="$PROJECT_DIR$/js/templates/text_ui.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/css/textinput0.css" afterPath="$PROJECT_DIR$/css/textinput0.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/common/tpldata_manager.js" afterPath="$PROJECT_DIR$/js/common/tpldata_manager.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/utils/utils.js" afterPath="$PROJECT_DIR$/js/utils/utils.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/css/watermark.css" afterPath="$PROJECT_DIR$/css/watermark.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/views/make/watermark.js" afterPath="$PROJECT_DIR$/js/views/make/watermark.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/views/make/watermark_edit.js" afterPath="$PROJECT_DIR$/js/views/make/watermark_edit.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/css/watermarkedit.css" afterPath="$PROJECT_DIR$/css/watermarkedit.css" />
+    </list>
+    <ignored path="www.iws" />
+    <ignored path=".idea/workspace.xml" />
+    <option name="TRACKING_ENABLED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ChangesViewManager" flattened_view="true" show_ignored="false" />
+  <component name="CreatePatchCommitExecutor">
+    <option name="PATCH_PATH" value="" />
+  </component>
+  <component name="DaemonCodeAnalyzer">
+    <disable_hints />
+  </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
+  <component name="FavoritesManager">
+    <favorites_list name="www" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf>
+      <file leaf-file-name="displayobject_manager.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/js/common/displayobject_manager.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="3758" max-vertical-offset="6780">
+              <caret line="263" column="70" selection-start-line="263" selection-start-column="70" selection-end-line="263" selection-end-column="70" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="eventconstant.js" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/js/common/render/eventconstant.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.20260021" vertical-offset="548" max-vertical-offset="1560">
+              <caret line="53" column="18" selection-start-line="53" selection-start-column="18" selection-end-line="53" selection-end-column="18" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="fma_a_make.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/js/views/make/fma_a_make.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="1908" max-vertical-offset="13260">
+              <caret line="28" column="27" selection-start-line="28" selection-start-column="27" selection-end-line="28" selection-end-column="27" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FindManager">
+    <FindUsagesManager>
+      <setting name="OPEN_NEW_TAB" value="true" />
+    </FindUsagesManager>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectFrameBounds">
+    <option name="x" value="-8" />
+    <option name="y" value="-8" />
+    <option name="width" value="1936" />
+    <option name="height" value="1056" />
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="false">
+    <OptionsSetting value="true" id="Add" />
+    <OptionsSetting value="true" id="Remove" />
+    <OptionsSetting value="true" id="Checkout" />
+    <OptionsSetting value="true" id="Update" />
+    <OptionsSetting value="true" id="Status" />
+    <OptionsSetting value="true" id="Edit" />
+    <ConfirmationsSetting value="0" id="Add" />
+    <ConfirmationsSetting value="0" id="Remove" />
+  </component>
+  <component name="ProjectReloadState">
+    <option name="STATE" value="0" />
+  </component>
+  <component name="ProjectView">
+    <navigator currentView="ProjectPane" proportions="" version="1">
+      <flattenPackages />
+      <showMembers />
+      <showModules />
+      <showLibraryContents />
+      <hideEmptyPackages />
+      <abbreviatePackageNames />
+      <autoscrollToSource />
+      <autoscrollFromSource />
+      <sortByType />
+    </navigator>
+    <panes>
+      <pane id="ProjectPane">
+        <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="www" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="www" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="www" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
+      <pane id="Scope" />
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="FullScreen" value="false" />
+  </component>
+  <component name="RunManager">
+    <configuration default="true" type="DartCommandLineRunConfigurationType" factoryName="Dart Command Line Application">
+      <option name="VMOptions" />
+      <option name="arguments" />
+      <option name="filePath" />
+      <option name="name" value="Dart" />
+      <option name="saveOutputToFile" value="false" />
+      <option name="showConsoleOnStdErr" value="false" />
+      <option name="showConsoleOnStdOut" value="false" />
+      <method />
+    </configuration>
+    <configuration default="true" type="DartUnitRunConfigurationType" factoryName="DartUnit">
+      <option name="VMOptions" />
+      <option name="arguments" />
+      <option name="filePath" />
+      <option name="scope" value="ALL" />
+      <option name="testName" />
+      <method />
+    </configuration>
+    <configuration default="true" type="JSTestDriver:ConfigurationType" factoryName="JsTestDriver">
+      <setting name="configLocationType" value="CONFIG_FILE" />
+      <setting name="settingsFile" value="" />
+      <setting name="serverType" value="INTERNAL" />
+      <setting name="preferredDebugBrowser" value="Chrome" />
+      <method />
+    </configuration>
+    <configuration default="true" type="JavaScriptTestRunnerKarma" factoryName="Karma" config-file="">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="CucumberJavaScriptRunConfigurationType" factoryName="Cucumber.js">
+      <option name="cucumberJsArguments" />
+      <option name="executablePath" />
+      <option name="filePath" />
+      <method />
+    </configuration>
+    <configuration default="true" type="JavascriptDebugType" factoryName="JavaScript Debug">
+      <method />
+    </configuration>
+    <configuration default="true" type="NodeJSConfigurationType" factoryName="Node.js" working-dir="">
+      <method />
+    </configuration>
+    <list size="0" />
+  </component>
+  <component name="ShelveChangesManager" show_recycled="false" />
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="64196334-b428-48eb-a5c1-2f5a8315f092" name="Default" comment="" />
+      <created>1416306734822</created>
+      <updated>1416306734822</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="7" />
+    <editor active="false" />
+    <layout>
+      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.1484375" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32947367" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+    </layout>
+  </component>
+  <component name="Vcs.Log.UiProperties">
+    <option name="RECENTLY_FILTERED_USER_GROUPS">
+      <collection />
+    </option>
+    <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
+      <collection />
+    </option>
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="myTodoPanelSettings">
+      <TodoPanelSettings />
+    </option>
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/js/common/displayobject_manager.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="6780">
+          <caret line="263" column="70" selection-start-line="263" selection-start-column="70" selection-end-line="263" selection-end-column="70" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/common/render/eventconstant.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="548" max-vertical-offset="1560">
+          <caret line="53" column="18" selection-start-line="53" selection-start-column="18" selection-end-line="53" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/views/make/fma_a_make.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="1908" max-vertical-offset="13260">
+          <caret line="28" column="27" selection-start-line="28" selection-start-column="27" selection-end-line="28" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/views/make/fma_a_make.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="1908" max-vertical-offset="13260">
+          <caret line="28" column="27" selection-start-line="28" selection-start-column="27" selection-end-line="28" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/common/displayobject_manager.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="3758" max-vertical-offset="6780">
+          <caret line="263" column="70" selection-start-line="263" selection-start-column="70" selection-end-line="263" selection-end-column="70" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/common/render/eventconstant.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.20260021" vertical-offset="548" max-vertical-offset="1560">
+          <caret line="53" column="18" selection-start-line="53" selection-start-column="18" selection-end-line="53" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>
+

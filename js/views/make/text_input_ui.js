@@ -39,17 +39,19 @@ define([
 		// 当前编辑的EditText控件
 		this.currentTextCtrl = null;
 
+        this.parentView.MenuReset(this.$el);
+
         var self = this;
         setTimeout(function(){
             self.inputtab = $("#inputtab");
             self.inputcontent = $("#inputcontent");
             self.closeBn = $("#close_text_ui");
-            self.closeBn.on("tap",function(){
+            self.closeBn.on("mouseup",function(){
                 self.okHandle();
             });
 
             self.textNavUl = $("#text_nav_ul");
-            self.textNavUl.on("click",function(e){
+            self.textNavUl.on("mouseup",function(e){
                 self.onNavUlClick(e);
             });
 
@@ -303,11 +305,14 @@ define([
     TextInputUI.prototype.show = function(){
 		this.currentTextCtrl = null;
 		
-        app.makeView.header.removeClass("showmakeheader");
-        app.makeView.header.addClass("hidemakeheader");
+        //app.makeView.header.removeClass("showmakeheader");
+        //app.makeView.header.addClass("hidemakeheader");
 
-        this.$el.removeClass("hidetextinput");
-        this.$el.addClass("showtextinput");
+        //this.$el.removeClass("hidetextinput");
+        //this.$el.addClass("showtextinput");
+
+        this.parentView.MenuIn(this.$el);
+
         this.textTypeScroll.refresh();
         this.textScroll.refresh();
 
@@ -336,11 +341,14 @@ define([
 
     TextInputUI.prototype.hide = function(){
 
-        app.makeView.header.removeClass("hidemakeheader");
-        app.makeView.header.addClass("showmakeheader");
+        //app.makeView.header.removeClass("hidemakeheader");
+        //app.makeView.header.addClass("showmakeheader");
 
-        this.$el.removeClass("showtextinput");
-        this.$el.addClass("hidetextinput");
+        //this.$el.removeClass("showtextinput");
+        //this.$el.addClass("hidetextinput");
+
+        this.parentView.MenuOut(this.$el);
+
         this.textArae.val("");
         if(this.onhide){
             this.onhide();

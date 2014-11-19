@@ -1,4 +1,186 @@
 ﻿/*
+    add ~ 2014-9-27 16.07 mistery
+    分享(保存)页 css
+*/
+/**设置背景色**/
+#make_save {
+	background-color: #000000;
+}
+.save_top_box{
+    background:#303030;
+    height:100px;
+    position: relative;
+    opacity: 0.5;
+}
+.save_break_logo{
+    height: 100%;
+}
+.save_home_logo{
+    background-image:url(../images/skin3/make/save/home.png) !important;
+    background:no-repeat center center;
+    background-size:contain;
+    height:56px;
+    position:absolute;
+    right:22px;
+    top: 22px;
+    width:56px;
+}
+.save_page_long{
+    color:#FFFFFF;
+}
+
+.hint_info{
+    font-size:32px;
+    margin: 84px auto 0px auto;
+    width:100%;
+    display: block;
+    text-align: center;
+}
+
+.fengeline{
+    margin: 98px auto 0px auto;
+    width:460px;
+    display: block;
+    text-align: center;
+}
+.fengeline .only_line{
+	width: 172px;
+	display: inline-block;
+
+}
+
+.fengeline .line_content{
+	font-size: 28px;
+	margin-left: 30px;
+	margin-right: 30px;
+	display: inline-block;
+}
+
+#save_info>img{
+    vertical-align: middle;
+    margin-right: 5%;
+}
+.save_make_save{
+    width:100%;
+    margin:8% auto 9% auto;
+    text-align: center;
+}
+.save_make_save img{
+    width:17%;
+}
+@media screen and (min-width: 600px){
+    #infinite_scroll p{
+        font-size:3em;
+    }
+    .ui-checkbox input, .ui-radio input{
+        position:absolute;
+    }
+}
+@media screen and (min-width: 1136px) {
+    #infinite_scroll p{
+        font-size:5em;
+    }
+    .save_share_bu table tr{
+        width:50%;
+    }
+    .save_pic_div{
+        line-height:400%;
+    }
+    .save_make_save{
+        width:80%;
+        margin:7% auto 8% auto;
+    }
+    .save_page_long > span{
+        font-size:7em;
+    }
+}
+
+.save_share_bu{
+	width: 460px;
+	margin: 64px auto 0px auto;
+}
+.save_share_bu table{
+    margin:auto;
+    width:100%;
+}
+.save_share_bu table tr{
+    width:460px;
+	
+    display:table;
+}
+.save_share_bu table tr:first-child{
+	margin-bottom: 34px;
+}
+.save_share_bu table tr td {
+	width: 103px;
+    float:left;
+	height: 195px;
+}
+.save_share_bu table tr td:not(:last-child){
+    margin-right:70px;
+}
+
+#share_div{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    display: none;
+    top: 0px;
+    left: 0px;
+}
+#share_div nav{
+    height: 50px;
+    width: 100%;
+    text-align: right;
+    background-color: #000;
+}
+#share_div nav>nav{
+    width: 50px;
+    height: 50px;
+    float: right;
+    background: url(../images/skin3/pic_frame_close.png) no-repeat center;
+}
+#share_div iframe{
+    height: 100%;
+    width: 100%;
+}
+
+/*
+* web分享窗口css
+*/
+
+.share_div_box{
+    background:#232a30;
+    height:50px;
+    position: relative;
+    border-bottom:1px solid #666666;
+}
+
+.share_div_logo{
+    background-image:url(../images/skin3/pic_frame_close.png) !important;
+    background:no-repeat center center;
+    background-size:20px 20px;
+    height:28px;
+    position:absolute;
+    right:11px;
+    top: 11px;
+    width:28px;
+}
+
+#make_save button{
+    width: 218px !important;
+    height: 34px;
+    border: none !important;
+    outline:  none !important;
+    display: inline-block;
+    position: absolute;
+    left: 50%;
+    bottom: 100px;
+    -webkit-transform:translateX(-50%);
+    background: url(../images/skin3/make/save/allow.png);
+}
+
+/*
 *修改禁止或者启用编辑推荐
 *
 */
@@ -8,7 +190,7 @@
 	height: 88px;
 	background-color: #161616;
 	border: 1px solid #161616;
-	margin: 134px auto;
+	margin: 80px auto;
 	color: white;
 	text-align: center;
 }
@@ -38,12 +220,14 @@
 #switch_div .yj_checkbox {
 height: 44px;
 width: 93px;
+display: inline-block;
+background-color: #7a7a7a;
 position: absolute;
-z-index: 1003;
+z-index: 1;
+margin-left: -46px;
 -moz-border-radius: 22px;
 -webkit-border-radius: 22px;
 border-radius: 22px;
-  background-color: ##7a7a7a;
 }
 #switch_div .yj_checkbox:after {
 height: 44px;
@@ -51,7 +235,7 @@ width: 55px;
 position: absolute;
 margin-left: -46px;
 content: '';
-z-index: 1002;
+z-index: 1;
 -moz-border-radius: 22px 0 0 22px;
 -webkit-border-radius: 22px;
 border-radius: 22px 0 0 22px;
@@ -59,11 +243,15 @@ border-radius: 22px 0 0 22px;
 }
 
 #switch_div   .yj_control {
-  height: 44px;
-  width: 70px;
-  display: inline-block;
-  margin-top: -6px;
-  z-index: 1004;
+  height: 59px;
+	width: 76px;
+	display: inline-block;
+	margin-left: -50px;
+	margin-top: -6px;
+	position: absolute;
+	z-index: 2;
+	background: url(../images/skin3/make/save/check.png);
+  /*
   -webkit-appearance: none;
   -moz-border-radius: 22px;
   -webkit-border-radius: 22px;
@@ -81,10 +269,13 @@ border-radius: 22px 0 0 22px;
   -o-transition: all 0.2s ease-in-out;
   -webkit-transition: all 0.2s ease-in-out;
   transition: all 0.2s ease-in-out;
+  */
 }
 #switch_div   .yj_control:checked {
-  left: 25px;
+  /*left: 25px;*/
+  margin-left: -25px;
 }
+/*
 #switch_div .yj_control:after {
   height: 25px;
   width: 25px;
@@ -103,7 +294,7 @@ border-radius: 22px 0 0 22px;
   background-image: -webkit-linear-gradient(top, #c2c0be 0%, #d7d7d7 72%);
   background-image: linear-gradient(to bottom, #c2c0be 0%, #d7d7d7 72%);
 }
-
+*/
 
 
 

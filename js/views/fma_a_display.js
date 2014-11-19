@@ -33,15 +33,15 @@ define([
 
             setTimeout(function(){
                 self.bnUse = $("#tpl_use");
-                self.bnUse.on("tap",function(){
+                self.bnUse.on("mouseup",function(){
                     self.onUse();
                 });
 
-                $(".make_save_share").on("tap",function(e){
+                $(".make_save_share").on("mouseup",function(e){
                     self.onSaveOrShare();
                 });
 
-                $("#back_to_square").on("tap",function(e){
+                $("#back_to_square").on("mouseup",function(e){
 
                     app.routers.appRouter.navigate("#fma/square",{replace:true,trigger:true});
                 });
@@ -190,7 +190,7 @@ define([
             for(; i< self.swip_first_tpl+count; i++) {
 
                 var tpl = self.tpl_arr[i];
-                var imgUrl = fmacapi.tpl_thumb_img_url(tpl);
+                var imgUrl = fmacapi.tpl_effect_img_url(tpl);
 
                 var img = new Image();
                 img.tpl_index = i;
@@ -244,22 +244,13 @@ define([
             this.ResetSwipTpls();
             $(this.el).detach();
         },
-        pageIn : function(){
-            },
-                onSaveOrShare : function(){
-              var self = this;
-              DisplayObjectManager.setAllSelected(false);
-            _.delay(function(){
-                try {
-                    var canvas = $("#makecanvas").get(0);
-                    DisplayObjectManager.effect_img = canvas.toDataURL("image/png", 1);
-                }catch(e){
-                    alert(e.message);
-                }
-                app.routers.appRouter.navigate("fma/save",{replace:false,trigger:true});
-            },1);
-//            }
+        pageIn: function () {
         },
+        onSaveOrShare: function () {
+                app.routers.appRouter.navigate("fma/save/" +
+                    encodeURIComponent(fmacapi.tpl_effect_img_url(this.tpl_arr[this.cur_tpl])),
+                    {replace: true, trigger: true});
+        }
     });
     return DisplayView;
 });

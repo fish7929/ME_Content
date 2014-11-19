@@ -45,6 +45,7 @@ define([
         this.currentSelectedColorLi = null;
 
         this.parentView = parentView;
+        this.parentView.MenuReset(this.$el);
 
         utils.delay(function(){
             var self = this;
@@ -74,11 +75,11 @@ define([
                 self.change("rowspacing", e.target.value);
             };
 
-                var ul = this.$el.find("#font_scroller > ul:first");
-                var html = "<li><div attr='photo' color='photo_pic'></div></li>";
-                html += "<li><div attr='photolib' color='photo_lib'></div></li>";
+            var ul = this.$el.find("#font_scroller > ul:first");
+            var html = "<li><div attr='photo' color='photo_pic'></div></li>";
+            html += "<li><div attr='photolib' color='photo_lib'></div></li>";
 
-                ul.html(html + utils.createMaskColorLi(colors));
+            ul.html(html + utils.createMaskColorLi(colors));
 
             this.fontTextAlign = this.$el.find(".font_text_align");
             this.textAlignDet = this.$el.find(".text_align_det");
@@ -123,26 +124,26 @@ define([
 
             //左对齐
             $("#fontAlign .align-left").click(function(){
-				if (DisplayObjectManager.currentDisplayObject && DisplayObjectManager.currentDisplayObject.type == "edittext") {
-					var text = DisplayObjectManager.currentDisplayObject;
-					text.setAlign("left");
-				}
+                if (DisplayObjectManager.currentDisplayObject && DisplayObjectManager.currentDisplayObject.type == "edittext") {
+                    var text = DisplayObjectManager.currentDisplayObject;
+                    text.setAlign("left");
+                }
             });
 
             //居中对齐
             $("#fontAlign .align-center").click(function(){
-				if (DisplayObjectManager.currentDisplayObject && DisplayObjectManager.currentDisplayObject.type == "edittext") {
-					var text = DisplayObjectManager.currentDisplayObject;
-					text.setAlign("center");
-				}
+                if (DisplayObjectManager.currentDisplayObject && DisplayObjectManager.currentDisplayObject.type == "edittext") {
+                    var text = DisplayObjectManager.currentDisplayObject;
+                    text.setAlign("center");
+                }
             });
 
             //右对齐
             $("#fontAlign .align-right").click(function(){
-				if (DisplayObjectManager.currentDisplayObject && DisplayObjectManager.currentDisplayObject.type == "edittext") {
-					var text = DisplayObjectManager.currentDisplayObject;
-					text.setAlign("right");
-				}
+                if (DisplayObjectManager.currentDisplayObject && DisplayObjectManager.currentDisplayObject.type == "edittext") {
+                    var text = DisplayObjectManager.currentDisplayObject;
+                    text.setAlign("right");
+                }
             });
 
             //关闭按钮
@@ -151,27 +152,27 @@ define([
                 self.hide();
             });
 
-                /*相机相册点击事件*/
-                $('#fontColor li:eq(0)').on("tap", function (e) {
-                    self.photoClick(e);
-                })
-                $('#fontColor li:eq(1)').on("tap", function (e) {
-                    self.photoClick(e);
-                })
+            /*相机相册点击事件*/
+            $('#fontColor li:eq(0)').on("tap", function (e) {
+                self.photoClick(e);
+            })
+            $('#fontColor li:eq(1)').on("tap", function (e) {
+                self.photoClick(e);
+            })
 
-                //工具栏点击事件
-                $("#font_tool li").on("tap", function (e) {
-                    $("#font_tool").find(".active").removeClass("active");
-                    $(this).addClass("active");
-                    $("#font_ui").css("visibility", "visible");
-                    $("#font_ui [role='util']").hide();
-                    $(".input_mask.font").hide();
-                    $($(this)[0].dataset.target).show();
-                    if ($($(this)[0].dataset.target).next().hasClass("input_mask")) $($(this)[0].dataset.target).next().show();
-                    if ($(this)[0].dataset.target === "#fontColor") {
-                        self.fontScroll.refresh();
-                    }
-                })
+            //工具栏点击事件
+            $("#font_tool li").on("tap", function (e) {
+                $("#font_tool").find(".active").removeClass("active");
+                $(this).addClass("active");
+                $("#font_ui").css("visibility", "visible");
+                $("#font_ui [role='util']").hide();
+                $(".input_mask.font").hide();
+                $($(this)[0].dataset.target).show();
+                if ($($(this)[0].dataset.target).next().hasClass("input_mask")) $($(this)[0].dataset.target).next().show();
+                if ($(this)[0].dataset.target === "#fontColor") {
+                    self.fontScroll.refresh();
+                }
+            })
 
 
         },0,this);
@@ -258,26 +259,46 @@ define([
 
             var w = $("#font_scroller").find("ul:first > li");
 
-                var liSize = w.size();
-                var liWidth = w.eq(0).width();
-                // console.log("w:" + liSize)
-                //需要动态算出滚动条的宽度
-                $("#font_scroller").css({
-                    width: ((liWidth + 12.33) * (liSize)) + "px"
-                });
+            var liSize = w.size();
+            var liWidth = w.eq(0).width();
+            //需要动态算出滚动条的宽度
+            $("#font_scroller").css({
+                width: ((liWidth + 12.33) * (liSize)) + "px"
+            });
 
-                self.fontScroll = new IScroll('#font_wrapper', {
-                    scrollX: true,
-                    scrollY: false,
-                    mouseWheel: true,
-                    tap: true,
-                    click: true,
-                    bounce: false,
-                    bindToWrapper: true,
-                    keyBindings: false
-                });
-            }, 100);
-        };
+            self.fontScroll = new IScroll('#font_wrapper', {
+                scrollX: true,
+                scrollY: false,
+                mouseWheel: true,
+                tap: true,
+                click: true,
+                bounce: false,
+                bindToWrapper: true,
+                keyBindings: false
+            });
+
+            w = $("#font-tool-scroller").find("ul:first > li");
+
+            var liSize = w.size();
+            var liWidth = w.eq(0).width();
+//            console.log(liWidth)
+            //需要动态算出滚动条的宽度
+            $("#font-tool-scroller").css({
+                width: ((liWidth + 12.33) * (liSize)) + "px"
+            });
+
+            self.toolScroll = new IScroll('#font_tool', {
+                scrollX: true,
+                scrollY: false,
+                mouseWheel: true,
+                tap: true,
+                click: true,
+                bounce: false,
+                bindToWrapper: true,
+                keyBindings: false
+            });
+        }, 100);
+    };
 
     /**
      * 字体的属性值改变
@@ -301,75 +322,78 @@ define([
                     $("#fontSizeMask").width(($("#fontSizeInput").offsetParent().width()*0.9-53)*inputPercent);
                     break;
                 case "spacing":
+                    text.setLetterSpacing(value);
                     var inputPercent = $("#fontSpacingInput").val()/($("#fontSpacingInput").prop("max")-$("#fontSpacingInput").prop("min"));
                     $("#fontSpacingMask").width(($("#fontSpacingInput").offsetParent().width()*0.9-53)*inputPercent);
                     break;
                 case "rowspacing":
-	text.setLineHeight(value);
+                    text.setLineHeight(value);
                     var inputPercent = $("#fontHeightInput").val()/($("#fontHeightInput").prop("max")-$("#fontHeightInput").prop("min"));
                     $("#fontHeightMask").width(($("#fontHeightInput").offsetParent().width()*0.9-53)*inputPercent);
-				break;
+                    break;
             }
         }
     };
 
     FontUI.prototype.show = function(){
-        this.$el.removeClass("hidefontui");
-        this.$el.addClass("showfontui");
-        this.closeBtn.css({display:"block"});
-        this.parentView.Default.hide();
+        //this.$el.removeClass("hidefontui");
+        //this.$el.addClass("showfontui");
 
+        this.parentView.MenuIn(this.$el);
+        this.closeBtn.css({display:"block"});
 
         this.fontScroll.refresh();
-        // this.toolScroll.refresh();
+        this.toolScroll.refresh();
     };
 
     FontUI.prototype.hide = function(){
-        this.$el.removeClass("showfontui");
-        this.$el.addClass("hidefontui");
+
+//        this.$el.removeClass("showfontui");
+//        this.$el.addClass("hidefontui");
+        this.parentView.MenuOut(this.$el);
         this.closeBtn.css({display:"none"});
         if(this.onhide){
             this.onhide();
         }
     };
 
-        FontUI.prototype.setTextMirror = function (dir) {
-            if (DisplayObjectManager.currentDisplayObject && DisplayObjectManager.currentDisplayObject.type == "edittext") {
-                var text = DisplayObjectManager.currentDisplayObject;
-                text.setTextMirror(dir);
-            }
-        };
+    FontUI.prototype.setTextMirror = function (dir) {
+        if (DisplayObjectManager.currentDisplayObject && DisplayObjectManager.currentDisplayObject.type == "edittext") {
+            var text = DisplayObjectManager.currentDisplayObject;
+            text.setTextMirror(dir);
+        }
+    };
 
-        // 设置字体大小
-        FontUI.prototype.set_font_size = function (font_size) {
-            this.$el.find("input[attr=fontsize]").get(0).value = font_size;
-            var inputPercent = $("#fontSizeInput").val() / ($("#fontSizeInput").prop("max") - $("#fontSizeInput").prop("min"));
-            $("#fontSizeMask").width(($("#fontSizeInput").offsetParent().width() * 0.9 - 53) * inputPercent);
-        };
+    // 设置字体大小
+    FontUI.prototype.set_font_size = function (font_size) {
+        this.$el.find("input[attr=fontsize]").get(0).value = font_size;
+        var inputPercent = $("#fontSizeInput").val() / ($("#fontSizeInput").prop("max") - $("#fontSizeInput").prop("min"));
+        $("#fontSizeMask").width(($("#fontSizeInput").offsetParent().width() * 0.9 - 53) * inputPercent);
+    };
 
-        // 设置字体透明度
-        FontUI.prototype.set_alpha = function (alpha) {
-            this.$el.find("input[attr=opacity]").get(0).value = alpha;
-            //初始化inputMask造成长度
-            var inputPercent = $("#fontOpacityInput").val() / ($("#fontOpacityInput").prop("max") - $("#fontOpacityInput").prop("min"));
-            $("#fontOpacityMask").width(($("#fontOpacityInput").offsetParent().width() * 0.9 - 53) * inputPercent);
-        };
+    // 设置字体透明度
+    FontUI.prototype.set_alpha = function (alpha) {
+        this.$el.find("input[attr=opacity]").get(0).value = alpha;
+        //初始化inputMask造成长度
+        var inputPercent = $("#fontOpacityInput").val() / ($("#fontOpacityInput").prop("max") - $("#fontOpacityInput").prop("min"));
+        $("#fontOpacityMask").width(($("#fontOpacityInput").offsetParent().width() * 0.9 - 53) * inputPercent);
+    };
 
-        // 设置字间距
-        FontUI.prototype.set_spacing = function (spacing) {
-            //TODU功能未实现，hbj给予固定值
-            this.$el.find("input[attr=spacing]").get(0).value = 25;
-            var inputPercent = $("#fontSpacingInput").val() / ($("#fontSpacingInput").prop("max") - $("#fontSpacingInput").prop("min"));
-            $("#fontSpacingMask").width(($("#fontSpacingInput").offsetParent().width() * 0.9 - 53) * inputPercent);
-        };
+    // 设置字间距
+    FontUI.prototype.set_spacing = function (spacing) {
+        //TODU功能未实现，hbj给予固定值
+        this.$el.find("input[attr=spacing]").get(0).value = 25;
+        var inputPercent = $("#fontSpacingInput").val() / ($("#fontSpacingInput").prop("max") - $("#fontSpacingInput").prop("min"));
+        $("#fontSpacingMask").width(($("#fontSpacingInput").offsetParent().width() * 0.9 - 53) * inputPercent);
+    };
 
-        // 设置行间距
-        FontUI.prototype.set_row_spacing = function (row_spacing) {
-            //TODU功能未实现，hbj给予固定值
-            this.$el.find("input[attr=rowspacing]").get(0).value = row_spacing;
-            var inputPercent = $("#fontHeightInput").val() / ($("#fontHeightInput").prop("max") - $("#fontHeightInput").prop("min"));
-            $("#fontHeightMask").width(($("#fontHeightInput").offsetParent().width() * 0.9 - 53) * inputPercent);
-        };
+    // 设置行间距
+    FontUI.prototype.set_row_spacing = function (row_spacing) {
+        //TODU功能未实现，hbj给予固定值
+        this.$el.find("input[attr=rowspacing]").get(0).value = row_spacing;
+        var inputPercent = $("#fontHeightInput").val() / ($("#fontHeightInput").prop("max") - $("#fontHeightInput").prop("min"));
+        $("#fontHeightMask").width(($("#fontHeightInput").offsetParent().width() * 0.9 - 53) * inputPercent);
+    };
 
     return FontUI;
 });

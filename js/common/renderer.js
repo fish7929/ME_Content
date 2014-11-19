@@ -6,7 +6,10 @@
 // 创 建 人: chenshy
 // 创建日期: 2014/08/25
 // 描    述: 渲染器，渲染显示对象
-define(['common/render/include'],function(createjs){
+define([
+    'common/render/include',
+    'common/render/updown_displayobject'
+],function(createjs,UpDownComponent){
 
     var Renderer = function(canvas){
         this.canvas = canvas;
@@ -19,6 +22,9 @@ define(['common/render/include'],function(createjs){
 
         this.stage.enableMouseOver(3);
         this.stage.mouseMoveOutside = true; // ke
+
+        this.upDownComponent = new UpDownComponent();
+
 
         //背景层
 //        this.bgLayer = new createjs.Container();
@@ -105,6 +111,7 @@ define(['common/render/include'],function(createjs){
      */
     Renderer.prototype.addObjects = function(objects){
         addObjectsToStage(objects,this.stage);
+
     };
 
     Renderer.prototype.addObject = function(object,index){
@@ -239,6 +246,10 @@ define(['common/render/include'],function(createjs){
 			}
 		}
 	}
+
+    Renderer.prototype.swapChildren = function(c1,c2){
+        this.stage.swapChildren(c1,c2);
+    };
 
     Renderer.prototype.clear = function(){
         if(this.stage){

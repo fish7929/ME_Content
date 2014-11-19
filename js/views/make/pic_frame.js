@@ -21,6 +21,7 @@ define([
         this.el = this.$el.get(0);
         this.$el.html(this.template);
         this.parentView = parent;
+        this.parentView.MenuReset(this.$el);
 
         utils.delay(function(){
             var frames = PicFramesConfig;
@@ -30,7 +31,7 @@ define([
             //关闭按钮
             this.closeBtn = $("#picframe_on");
 
-            this.closeBtn.on("click",function(){
+            this.closeBtn.on("mouseup",function(){
                 self.hide();
             });
 
@@ -64,7 +65,7 @@ define([
 
            // alert("init")
 //            alert($("#picframe_wrapper").get(0));
-            $("#picframe_wrapper").on("click",function(e){
+            $("#picframe_wrapper").on("tap",function(e){
 //                alert("click")
                 picFrameClick.call(self,e);
             });
@@ -135,7 +136,7 @@ if(frame && frame.type == "editpicframe"){
                     g_ResListClass.list_frame();
 
                     //                    //绑定标签事件
-                   $("#pic_list_div>section>div>div").unbind("click").on("click",function(e){
+                   $("#pic_list_div>section>div>div").unbind("tap").on("tap",function(e){
                        var scale_str = $(this).attr("scale");
                        scale_num = 1;
                        if (scale_str)
@@ -181,7 +182,7 @@ if(frame && frame.type == "editpicframe"){
                     g_ResListClass.list_frame();
 
                     //                    //绑定标签事件
-                   $("#pic_list_div>section>div>div").unbind("click").on("click",function(){
+                   $("#pic_list_div>section>div>div").unbind("tap").on("tap",function(){
                        var scale_str = $(this).attr("scale");
                        scale_num = 1;
                        if (scale_str)
@@ -245,16 +246,18 @@ if(frame && frame.type == "editpicframe"){
     };
 
     PicFrame.prototype.show = function(){
-        this.$el.removeClass("hidepicframe");
-        this.$el.addClass("showpicframe");
+        //this.$el.removeClass("hidepicframe");
+        //this.$el.addClass("showpicframe");
+        this.parentView.MenuIn(this.$el);
         this.closeBtn.css({display:"block"});
         this.typeScroll.refresh();
         this.picScroll.refresh();
     };
 
     PicFrame.prototype.hide = function(){
-        this.$el.addClass("hidepicframe");
-        this.$el.removeClass("showpicframe");
+        //this.$el.addClass("hidepicframe");
+        //this.$el.removeClass("showpicframe");
+        this.parentView.MenuOut(this.$el);
         this.closeBtn.css({display:"none"});
         if(this.onhide){
             this.onhide();

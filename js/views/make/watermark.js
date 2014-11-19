@@ -27,6 +27,7 @@ define([
         this.currentSelectTab = null;
         this.$el.html(this.template);
         this.parentView = parent;
+        this.parentView.MenuReset(this.$el);
 
         this.picUL = null;
 
@@ -136,6 +137,7 @@ function onPicClick(e){
 		{
 			//显示list div
 			$("#pic_list_div").show();
+			
 			//var title = this.key==="signature"?"签章":this.key==="stamp"?"贴纸":'';
 
 			//思路从watermark_config文件中读取标签名称，根据keys数组获取this.key对应的index
@@ -146,10 +148,12 @@ function onPicClick(e){
 					 title = WaterMarkConfig.labels[key];
 				}
 			});
+
 			$("#pic_list_div header span").html("选择"+title);
 			$("#makeheader").addClass("filter40");
 			$("#makesection").addClass("filter40");
 			$("#watermark").addClass("filter40");
+
 			//this.key==="signature"?g_SignatureListClass.list_watermark():this.key==="stamp"?g_ResListClass.list_watermark():'';
 
 			switch(this.key){
@@ -165,7 +169,7 @@ function onPicClick(e){
 				default: 
 					'';
 			}
-                    //this.key==="signature"?g_SignatureListClass.list_watermark():this.key==="stamp"?g_ResListClass.list_watermark():this.key==="shape"?g_ResListClass.list_watermark():'';
+
 			$("#pic_list_div>section>div>div").unbind("click").on("click",
 				function(e)
 				{
@@ -461,9 +465,8 @@ function onPicClick(e){
 
          g_ResListClass.load_watermark_list();
      }else if (key == "shape"){ //添加形状菜单选中的触发事件
-         g_variable.watermark_html = html;
-         g_variable.watermark_original_length = us.length;
-
+         g_variable.shape_html = html;
+         g_variable.shape_original_length = us.length;
          g_ResListClass.load_shape_list();
      }
 
@@ -493,7 +496,6 @@ function onPicClick(e){
     function onWaterColorClick(e){
         var div = $(e.target);
         var color = div.attr("color");
-        //console.log(color)
         var p = this.parentView;
         var obj = p.opObject;
         if(obj && obj.type == "editwatermark"){
@@ -546,8 +548,9 @@ WaterMark.prototype.init_alpha = function(value){
 };
 
 WaterMark.prototype.show = function(){
-    this.$el.removeClass("hidewatermark");
-    this.$el.addClass("showwatermark");
+    //this.$el.removeClass("hidewatermark");
+    //this.$el.addClass("showwatermark");
+    this.parentView.MenuIn(this.$el);
     this.closeBtn.css({display:"block"});
     this.typeScroll.refresh();
     this.picScroll.refresh();
@@ -561,8 +564,9 @@ WaterMark.prototype.show = function(){
 };
 
 WaterMark.prototype.hide = function(){
-    this.$el.removeClass("showwatermark");
-    this.$el.addClass("hidewatermark");
+    //this.$el.removeClass("showwatermark");
+    //this.$el.addClass("hidewatermark");
+    this.parentView.MenuOut(this.$el);
     this.closeBtn.css({display:"none"});
     if(this.onhide){
         this.onhide();

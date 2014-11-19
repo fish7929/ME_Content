@@ -59,6 +59,44 @@ define(function(){
      */
     EventConstant.SHOW_TEXT_INPUT = "SHOW_TEXT_INPUT";
 
+    /**
+     * 背景或前景图片改变 事件
+     * @type {string}
+     */
+    EventConstant.FORE_BACK_CHANGE = "fore_back_change";
+
+    /**
+     * 显示对象的hold事件
+     * @type {string}
+     */
+    EventConstant.DISPLAYOBJECT_TAPHOLD = "displayobject_taphold";
+
+    /**
+     * 显示相机选择界面
+     * @type {string}
+     */
+    EventConstant.SHOW_PHOTO_CHANGE = 'SHOW_PHOTO_CHANGE';
+
+    EventConstant.SHOW_OR_HIDE_MENU = 'SHOW_OR_HIDE_MENU';
+
+    /**
+     * 改变显示对象层号的事件
+     * @type {string}
+     */
+    EventConstant.CHANGE_DISPLAYOBJECT_LAYER = "CHANGE_DISPLAYOBJECT_LAYER";
+    
+    /**
+     * 页面显示事件
+     * @type {string}
+     */
+    EventConstant.PAGE_SHOW = "PAGE_SHOW";
+    
+    /**
+     * 页面隐藏事件
+     * @type {string}
+     */
+    EventConstant.PAGE_HIDE = "PAGE_HIDE";
+
     window.EventConstant = EventConstant;
 
     return EventConstant;

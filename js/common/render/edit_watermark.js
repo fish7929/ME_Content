@@ -141,7 +141,8 @@ define([
         //设置水印图片路径
         this.userData.set("item_val",url);
 
-        var scale = this.userData.get("x_scale");
+        var scaleX = this.userData.get("x_scale");
+		var scaleY = this.userData.get("y_scale");
 
         utils.loadImage(url,function(img){
             var userData = self.userData;
@@ -156,7 +157,8 @@ define([
             self.bitmap.cache(0,0,img.width,img.height);
 
             //默认缩到
-            self.bitmap.scaleX = self.bitmap.scaleY = VS.vx(scale);
+            self.bitmap.scaleX = scaleX;
+            self.bitmap.scaleY = scaleY;
 
             self.addChild(self.bitmap);
 
@@ -501,18 +503,7 @@ define([
 				this.text.calc_relative_rotation();	// 计算相对角度
 				this.text.calc_relative_scale();	// 计算相对缩放比例
 
-				if (app.temp_66)
-				{
-					this.text.x = this.text.x;
-				}
-
 				//this.text.setScale(x_scale, y_scale);
-//				if (!this.text_added)
-//				{
-//					this.text_added = true;
-//
-//					//this.addChild(this.text);
-//				}
 			}
 		break;
 		}
@@ -659,27 +650,24 @@ define([
 //                dx = l.x - (this.x-this.regX);
 //                dy = l.y - (this.y-this.regY);
             }else {
-                dx = e.stageX - (this.x - this.regX);
-                dy = e.stageY - (this.y - this.regY);
 
-				var scaleX = dx / 50;
+				// 鼠标拖动事件的本地坐标
+				var pos_l = this.globalToLocal(e.stageX, e.stageY);
 
-				if (scaleX < 0)
-				{
-					scaleX = 0;
-				}
+				var x_l = pos_l.x;
+
+				dx = x_l;
 
 				if (this.bitmap)
 				{
-					this.bitmap.scaleX = 0.35 + scaleX;
+					this.bitmap.scaleX = dx / this.bitmap.image.width;
+					this.userData.set("x_scale", VS.rvx(this.bitmap.scaleX));
+					console.log("write x_scale: "
+						+ this.userData.get("x_scale") + ", " + VS.rvx(this.bitmap.scaleX)
+						+ ", " + this.bitmap.scaleX);
 					this.resize();
 				}
-
-				console.log("dx 000000: " + dx);
             }
-
-            //this.setLineWidth(VS.rvx(dx));
-            //this.resize();
         }
     };
 

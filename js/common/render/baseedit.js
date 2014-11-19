@@ -105,6 +105,9 @@ define([
          */
         this.isDragging = false;
 
+        /**当前是否处于多点中**/
+        this._isMultiTouching = false;
+
         /**
          * 一个图形对象，绘制矩形框用
          * @type {createjs.Shape}
@@ -117,31 +120,108 @@ define([
 
 		this.load_buttons();
 
+        this.distance = 0;
+        this.deltaX = 0;
+        this.deltaY = 0;
+
         //绘制边框
         var bgRect = this.bgRect = new createjs.Shape();
         bgRect.cursor = "pointer";
         this.shapg = bgRect.graphics;
+        //长按时间
+        this.holdDelay = 600;
+        this.delayTimeOut = null;
 
         //文本外边框事件，可拖动文本
         bgRect.on("mousedown", function(evt) {
-            self.offset = {x:self.x-evt.stageX, y:self.y-evt.stageY};
+            var touchEvent = evt.nativeEvent;
+//            appLog(touchEvent.touches.length)
+            if((touchEvent.constructor === TouchEvent && touchEvent.touches.length == 1 && !self._isMultiTouching) || touchEvent.constructor === MouseEvent){
+                self.offset = {
+                    x : self.x - evt.stageX,
+                    y : self.y - evt.stageY,
+                    lastX : evt.stageX,
+                    lastY : evt.stageY
+                };
+                self.delayTimeOut = setTimeout(function(){
+                    topEvent.trigger(EventConstant.DISPLAYOBJECT_TAPHOLD,self);
+                    self.isHold = true;
+                    self.delayTimeOut = null;
+                },self.holdDelay);
+            }else{
+                if(touchEvent.constructor === TouchEvent && touchEvent.touches.length > 1){
+                    self._isMultiTouching = true;
+                    self.clearHoldTimeout();
+                    self.isHold = false;
+
+                    var loc1 = touchEvent.touches[0];
+                    var loc2 = touchEvent.touches[1];
+
+                    var len = Math.sqrt(Math.pow(loc2.clientY - loc1.clientY, 2) +
+                        Math.pow(loc2.clientX - loc1.clientX, 2));  //两触摸点的距离
+                    self.distance = len;
+//                    appLog(loc2.clientX,loc1.clientX);
+                    self.deltaX = (loc1.clientX + loc2.clientX) / 2 - self.x;
+                    self.deltaY = (loc1.clientY + loc2.clientY) / 2 - self.y;
+                }
+            }
         });
 
         var clickTime = 0;
 
+        bgRect.on("pressup", function(evt) {
+            //appLog(evt.nativeEvent.touches.length);
+            setTimeout(function(){
+                self._isMultiTouching = false;
+            },100);
+        });
+
         bgRect.on("click",function(evt){
-             var now = +(new Date());
-             //两次点击间隔<300ms,判定为双击 TO-DO 多点会出现问题
-             if(now - clickTime < 300){
-                 self.dblclickHandle(evt);
-             }else{
-                 self.clickHandle(evt);
+            //如果移动范围超出指定像素，不触发click事件
+            //console.log("click");
+             if(!self.isLargeThanPixel(evt) && !self.isHold && !self._isMultiTouching){
+
+                 var now = +(new Date());
+                 //两次点击间隔<300ms,判定为双击 TODO 多点会出现问题
+                 if(now - clickTime < 300){
+                     self.dblclickHandle(evt);
+                 }else{
+                     self.clickHandle(evt);
+                 }
+
+                 clickTime = now;
              }
-             clickTime = now;
+
+            self.clearHoldTimeout();
+            self.isHold = false;
         });
 
         bgRect.on("pressmove", function(evt) {
-            self.pressMoveHandle(evt);
+            //console.log();
+            var touchEvent = evt.nativeEvent;
+//            appLog(touchEvent.touches.length)
+            if((touchEvent.constructor === TouchEvent && touchEvent.touches.length == 1 && !self._isMultiTouching) || touchEvent.constructor === MouseEvent){
+                //x y,偏差5像素才移动处理
+                if(self.isLargeThanPixel(evt)){
+                    self.pressMoveHandle(evt);
+                    self.clearHoldTimeout();
+                }
+            }else{
+                if(touchEvent.constructor === TouchEvent && touchEvent.touches.length > 1 && self._isMultiTouching){
+                    var loc1 = touchEvent.touches[0];
+                    var loc2 = touchEvent.touches[1];
+
+                    var currentDistance = Math.sqrt(Math.pow(loc2.clientY - loc1.clientY, 2) +
+                        Math.pow(loc2.clientX - loc1.clientX, 2));  //两触摸点的距离
+
+                    //算出缩放比值
+                    var rate = currentDistance / self.distance;
+
+                    self.distance = currentDistance;
+
+                    self._scaleHandler(rate,rate);
+                }
+            }
         });
 
 
@@ -151,6 +231,27 @@ define([
         this.onresize = function(){};
 
         this.addChild(this.bgRect);
+    };
+
+    p.isLargeThanPixel = function(evt){
+        var x = evt.stageX,
+            y = evt.stageY;
+            if(!this.offset){
+                return false;
+            }
+        var px = this.offset.lastX,
+            py = this.offset.lastY;
+        if(Math.abs(x - px) > 5 || Math.abs(y - py) > 5){
+            return true;
+        }
+        return false;
+    };
+
+    p.clearHoldTimeout = function(){
+        if(this.delayTimeOut){
+            window.clearTimeout(this.delayTimeOut);
+            this.delayTimeOut = null;
+        }
     };
 
 	// 加载按钮图片
@@ -421,7 +522,7 @@ define([
 //            this.userData.set("item_left",VS.rvx(this.x) - VS.rvx(this.regX));
 //            this.userData.set("item_top",VS.rvy(this.y) - VS.rvy(this.regY));
 
-			console.log("this.regXY_旋转: " + this.regX + ", " + this.regY);
+//			console.log("this.regXY_旋转: " + this.regX + ", " + this.regY);
 
 			if (this.onrotate)
 			{
@@ -474,71 +575,79 @@ define([
                          Math.pow(e.stageX - this.x, 2));
             }
 
-            var scaleX,
-                scaleY;
+
             //计算缩放值
             // console.log(this.parent.scaleObjects.length);
-            if(this.scaleObjects.length > 0){
+            var rate = curLen / lastLen;
 
-                var obj = this.scaleObjects[0];
+            this._scaleHandler(rate,rate);
 
-                scaleX = obj.scaleX * (curLen / lastLen);
-				scaleY = obj.scaleY * (curLen / lastLen);
-
-				// u:using
-				var scaleX_u = scaleX;
-				var scaleY_u = scaleY;
-
-                for(var i = 0;i < this.scaleObjects.length;i++){
-					
-					var scale_obj = this.scaleObjects[i];
-
-					if (this.type == "edittext")
-					{
-						if (this.b_jingxiang)
-						{
-							scaleX_u = 0 - Math.abs(scaleX_u);
-						}
-						else
-						{
-							scaleX_u = Math.abs(scaleX_u);
-						}
-
-						if (this.b_fanzhuan)
-						{
-							scaleY_u = 0 - Math.abs(scaleY_u);
-						}
-						else
-						{
-							scaleY_u = Math.abs(scaleY_u);
-						}
-
-						console.log("111111111111111111111111111: " + this.b_jingxiang + ", " + this.b_fanzhuan
-							+ ", " + scaleY_u + ", " + this.tag3);
-					}
-
-                    scale_obj.scaleX = scaleX_u;
-                    scale_obj.scaleY = scaleY_u;
-
-					if (this.type == "edittext")
-					{
-						this.resetRegPosition();
-					}
-                }
-            }else{
-                scaleX = this.scaleX * (curLen / lastLen);
-            }
-
-            scaleY = scaleX;
-
-            this.userData.set("x_scale",VS.rvx(scaleX));
-            this.userData.set("y_scale",VS.rvy(scaleY));
-
-           // console.log(scaleX,scaleY)
-
-            //核心逻辑已处理，剩下交由子类去处理
-            this.onscale(scaleX,scaleY);
         }
+    };
+
+    p._scaleHandler = function(rateX,rateY){
+        var scaleX;
+        var scaleY;
+        if(this.scaleObjects.length > 0){
+
+            var obj = this.scaleObjects[0];
+
+            scaleX = obj.scaleX * rateX;
+            scaleY = obj.scaleY * rateY;
+
+            // u:using
+            var scaleX_u = scaleX;
+            var scaleY_u = scaleY;
+
+            for(var i = 0;i < this.scaleObjects.length;i++){
+
+                var scale_obj = this.scaleObjects[i];
+
+                if (this.type == "edittext")
+                {
+                    if (this.b_jingxiang)
+                    {
+                        scaleX_u = 0 - Math.abs(scaleX_u);
+                    }
+                    else
+                    {
+                        scaleX_u = Math.abs(scaleX_u);
+                    }
+
+                    if (this.b_fanzhuan)
+                    {
+                        scaleY_u = 0 - Math.abs(scaleY_u);
+                    }
+                    else
+                    {
+                        scaleY_u = Math.abs(scaleY_u);
+                    }
+
+//						console.log("111111111111111111111111111: " + this.b_jingxiang + ", " + this.b_fanzhuan
+//							+ ", " + scaleY_u + ", " + this.tag3);
+                }
+
+                scale_obj.scaleX = scaleX_u;
+                scale_obj.scaleY = scaleY_u;
+
+                if (this.type == "edittext")
+                {
+                    this.resetRegPosition();
+                }
+            }
+        }else{
+            scaleX = this.scaleX * rateX;
+        }
+
+        scaleY = scaleX;
+
+        this.userData.set("x_scale",VS.rvx(scaleX));
+        this.userData.set("y_scale",VS.rvy(scaleY));
+
+        // console.log(scaleX,scaleY)
+
+        //核心逻辑已处理，剩下交由子类去处理
+        this.onscale(scaleX,scaleY);
     };
 
     /**
@@ -794,7 +903,6 @@ define([
 				this.userData.set("item_top", VS.rvy(this.y) - this.regY / VS.vx(y_scale));
 			}
 
-            //console.log(ix,iy)
             this.onmove();
             //TO-DO
 //            this.userData.set("item_left",this.x);
@@ -861,6 +969,10 @@ define([
 
     p.setGscale = function(scale){
 
+    };
+
+    p.setIsDragging = function(b){
+        this.isDragging = b;
     };
 
     p.setScale = function(scaleX,scaleY){};

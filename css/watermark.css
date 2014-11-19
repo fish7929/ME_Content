@@ -71,8 +71,7 @@
 }
 
 .hidewatermark{
-    bottom: -100%;
-    display: none;
+    display: block;
 }
 
 .watermarkbg{

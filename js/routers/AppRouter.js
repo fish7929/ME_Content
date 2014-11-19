@@ -8,7 +8,8 @@ define([
 'views/setting/fma_a_setting_about',
 'views/setting/fma_a_setting_manager',
 'views/setting/fma_a_setting_feedback',
-'views/fma_a_topic'
+'views/fma_a_topic',
+'views/nav/fma_a_slider'
 
 ], function( $, _,Backbone,
 appView,
@@ -17,7 +18,8 @@ SaveView,
 SettingAbout,
 SettingManager,
 SettingFeedBack,
-SquareTopic
+SquareTopic,
+SliderView
 
 ) {
 	//负责主要视图的切换
@@ -25,17 +27,26 @@ SquareTopic
 		views : [],
 		prePage : null,
 		showingPage : null,
-		//add mistery 初始化之后的侧边拦对象
-		initNavObj : appView.getView("SliderView"),
-		// add mistery end
-		gotoSlideButton : "[href='#fma/slider']",
-		//add mistery
-		//遮挡页面 的ID
-		pageMaskId : "maskId",
 		initialize : function(){
 			var self = this;
+			
+			var isInit = false;
+			//监听窗体显示，过场动画完成后触发
+			$(document).on(EventConstant.PAGE_SHOW, function(e){
+				console.log(" page show event ");
+				if(self.showingPage){
+					if(self.showingPage.pageIn){
+						self.showingPage.pageIn();
+					}
+				}
+			});
+			
 			//监听窗体隐藏
-			$(document).on('pagehide', function (event, ui) {
+			$(document).on(EventConstant.PAGE_HIDE, function(e){
+				e.stopPropagation();
+				if(e.target.id == "fma_a_square"){
+					return false;
+				}
 				if(self.prePage){
 					if(self.prePage.remove){
 						self.prePage.remove();
@@ -44,24 +55,30 @@ SquareTopic
 				}
 			});
 			
-			//监听窗体显示，过场动画完成后触发
-			$(document).on('pageshow', function (event, ui) {
-				appView.gotoNav($("#"+self.initNavObj.id),$("#pageContent"),true);
-				if(self.showingPage){
-					if(self.showingPage.pageIn){
-						self.showingPage.pageIn();
+			//监听侧边拦动画开始之前
+			//$(document)
+			
+			$("#pageContent").on("click",function(e){
+				var h = e.target;
+				if(h.href != null || h.id == "maskId"){
+					if((h+"").indexOf("#fma/slider") > 1){
+						appView.gotoNav($("#mainmenu_div"),$("#pageContent"));
+						h = null;
+						return false;
+					}
+					if(h.id == "maskId"){
+						appView.gotoNav($("#mainmenu_div"),$("#pageContent"),true);
 					}
 				}
-				// add mistery 绑定其它页面的点击事件   data-url-slider="true"
-				self.bindShowNavButton(self.gotoSlideButton);
+				h = null;
 			});
 			
-			//add mistery  改变DOM树结构,实现侧边栏效果
-			$(document.body).append($("<div id='pageContent'><div id="+ self.pageMaskId +" style='position:absolute;width:100%;height:100%;z-index:10;display:none'></div></div>"));
-
-			//add mistery initNAV in this page
-			this.initNav(this.initNavObj);
-			//add mistery end
+			this.initNav(appView.getView("SliderView"), appView.getView("SquareView"));
+			
+			//监听侧边拦的点击事件
+			$("#mainmenu_div a").on("click",function(e){
+				appView.gotoNav($("#mainmenu_div"),$("#pageContent"),true);
+			});
 		},
 		//路由规则
 		routes:{
@@ -71,7 +88,7 @@ SquareTopic
 			"fma/make" : "make",
 			"fma/reading/:id" : "reading", //阅读页
 			"fma/type" : "type",       //分类页
-			"fma/slider" : "slider",
+			"fma/slider" : "sliderView",
 			"fma/setting_home" : "settingHome", //设置页
 			"fma/setting_about" : "settingAbout", //关于页 fma_a_setting_manager.js
 			"fma/setting_manager" : "settingManager",
@@ -82,12 +99,12 @@ SquareTopic
 		},
 
 		home : function(){
-			// this.navigate("loading",{replace:true,trigger:true});
-			var view = appView.getView("LoadingView");
-			view.changeView(false);
-			this.changePage(view);
+//			var view = appView.getView("LoadingView");
+//			view.changeView(false);
+//			this.changePage(view);
+			this.navigate("fma/square",{replace:true,trigger:true});
 		},
-
+		
 		loading:function(){
 			var view = appView.getView("LoadingView");
 			this.changePage(view);
@@ -96,7 +113,7 @@ SquareTopic
 		/*广场页*/
 		square : function(){
 			var view = appView.getView("SquareView");
-			this.changePage(view);
+			this.changePage(view,true);
 		},
 
 		/*制作页*/
@@ -116,6 +133,11 @@ SquareTopic
 			var view = appView.getView("TypeView");
 			this.changePage(view);
 		},
+		
+//		sliderView : function(){
+//			var view = new SliderView();
+//			this.changePage(view,"nav");
+//		},
 
 		/*设置页首页*/
 		settingHome : function(){
@@ -156,69 +178,48 @@ SquareTopic
 			this.changePage(view);
 		},
 
-		changePage : function(page){
-        self = this;
-        this.prePage = this.showingPage;
-        this.showingPage = page;
-        $(page.el).attr('data-role', 'page');
-        $('#pageContent').append($(page.el));
-        if(this.isTopPage()){
-        		appView.gotoNav($("#"+self.initNavObj.id),$("#pageContent"),false);
-            $.mobile.defaultPageTransition = "none";
-        }else{
-            $.mobile.defaultPageTransition = "slide"; //fade slide
-        }
-        $.mobile.changePage($(page.el), {changeHash:true});
-        page.render();
-    },
-    
-		initNav : function(page,val){
-			$('body').append($(page.el));
+		changePage : function(page,bl){
+			this.prePage = this.showingPage;
+			this.showingPage = page;
+			if(!bl) $('#pageContent').append($(page.el));
+			if(this.isTopPage()){
+				appView.changePage("none","",$(page.el));
+			}else{
+				appView.changePage("slide","",$(page.el));
+			}
 			page.render();
-			this.bindNavClick("#"+page.id + " a");
 		},
-		
-		bindShowNavButton : function(val){
-			var self = this;
-			if(!val) return false;
-			$(val).unbind("click").click(function(){
-					appView.gotoNav($("#"+self.initNavObj.id),$("#pageContent"));
-					return false;
-			});
+    
+		initNav : function(page,page2){
+			// 默认加载  侧边拦
+  		$("body").append($(page.el));
+  		page.render();
+  		appView.gotoNav($("#mainmenu_div"),$("#pageContent"),true);
+  		// 默认加载  广场页
+  		$('#pageContent').append($(page2.el));
 		},
-		//给侧边拦的 链接绑定 隐藏侧边拦事件
-		bindNavClick : function(val){
-			var self = this;
-			if(!val) return false;
-			$(val).click(function(){
-				appView.gotoNav($("#"+self.initNavObj.id),$("#pageContent"),true);
-			});
-			$("#"+self.pageMaskId).click(function(){
-				$(self.gotoSlideButton).click();
-			});
-		},
-		
+		// 判断是否和侧边拦有关联
 		isTopPage : function(){
-				var p = [
-					"",
-					"loading",		//帮助
-					"feedback",				//回馈
-					"fma_a_square",		//主题
-					"setting_about"		//关于
-				],
-					self = this,
-					a = self.prePage ? self.prePage.id : "",
-					c = self.showingPage.id,
-					b = [false,false]
-				;
-				
-				for(var i = p.length-1; i ;i--){
-						if(a==p[i])
-							b[0] = true;
-						if(c==p[i])
-							b[1] = true;
-				}
-				return b[0]==b[1]?b[0]:false;
+			var p = [
+				"",
+				"loading",				//帮助
+				"feedback",				//回馈
+				"setting_about",	//关于
+				"fma_a_square"		//主题
+			],
+				self = this,
+				a = self.prePage ? self.prePage.id : "",
+				c = self.showingPage.id,
+				b = [false,false]
+			;
+		
+			for(var i = p.length-1; i ;i--){
+				if(a==p[i])
+					b[0] = true;
+				if(c==p[i])
+					b[1] = true;
+			}
+			return b[0]==b[1]?b[0]:false;
 		}
 	});
 	return AppRouter;

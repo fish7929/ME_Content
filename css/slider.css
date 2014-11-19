@@ -1,3 +1,124 @@
+
+/**  nav 过场动画 CSS  **/
+.sl_animation{
+		-webkit-animation-timing-function: ease-in-out;
+		animation-timing-function: ease-in-out;
+		-webkit-animation-duration: 300ms;
+		animation-duration: 300ms;
+		
+		-webkit-transform:translateZ(0);
+		transform:translateZ(0);
+}
+
+.navShowAni{-webkit-animation-name: sl_animation_nav_show;animation-name: sl_animation_nav_show;}
+.sl_animation.navShow{
+		-webkit-transform: translate3d(0,0,0) scale3d(1,1,1);
+		transform: translate3d(0,0,0) scale3d(1,1,1);
+}
+
+.pageHideAni{-webkit-animation-name: sl_animation_page_hide;animation-name: sl_animation_page_hide;}
+.sl_animation.pageHide{
+		-webkit-transform: translate3d(60%, 0px, 0px) perspective(200px) rotateY(-15deg);
+		transform: translate3d(60%, 0px, 0px) perspective(200px) rotateY(-15deg);
+}
+
+.navHideAni{-webkit-animation-name: sl_animation_nav_hide;animation-name: sl_animation_nav_hide;}
+.sl_animation.navHide{
+		-webkit-transform: translate3d(-50%,-10%,0px) scale3d(.5,.5,.5);
+		transform: translate3d(-50%,-10%,0px) scale3d(.5,.5,.5);
+}
+
+.pageShowAni{-webkit-animation-name: sl_animation_page_show;animation-name: sl_animation_page_show;}
+.sl_animation.pageShow{
+		-webkit-transform: translate3d(0,0,0) perspective(0px) rotateY(0deg);
+		transform: translate3d(0,0,0) perspective(0px) rotateY(0deg);
+}
+
+@keyframes sl_animation_page_show{
+		from{
+				-webkit-transform: translate3d(60%,0px,0px) perspective(200px) rotateY(-15deg);
+				transform: translate3d(60%,0px,0px) perspective(200px) rotateY(-15deg);
+		}
+		to{
+				-webkit-transform: translate3d(0px,0px,0px) perspective(0px) rotateY(0deg);
+				transform: translate3d(0px,0px,0px) perspective(0px) rotateY(0deg);
+		}
+}
+@-webkit-keyframes sl_animation_page_show{
+		from{
+				-webkit-transform: translate3d(60%,0px,0px) perspective(200px) rotateY(-15deg);
+				transform: translate3d(60%,0px,0px) perspective(200px) rotateY(-15deg);
+		}
+		to{
+				-webkit-transform: translate3d(0px,0px,0px) perspective(0px) rotateY(0deg);
+				transform: translate3d(0px,0px,0px) perspective(0px) rotateY(0deg);
+		}
+}
+
+@keyframes sl_animation_nav_hide{
+		from{
+				-webkit-transform: translate3d(0,0,0) scale3d(1,1,1);
+				transform: translate3d(0,0,0) scale3d(1,1,1);
+		}
+		to{
+				-webkit-transform: translate3d(-50%,-10%,0px) scale3d(.5,.5,.5);
+				transform: translate3d(-50%,-10%,0px) scale3d(.5,.5,.5);
+		}
+}
+@-webkit-keyframes sl_animation_nav_hide{
+		from{
+				-webkit-transform: translate3d(0,0,0) scale3d(1,1,1);
+				transform: translate3d(0,0,0) scale3d(1,1,1);
+		}
+		to{
+				-webkit-transform: translate3d(-50%,-10%,0px) scale3d(.5,.5,.5);
+				transform: translate3d(-50%,-10%,0px) scale3d(.5,.5,.5);
+		}
+}
+
+@keyframes sl_animation_page_hide{
+		from{
+				-webkit-transform: translate3d(0px, 0px, 0px) perspective(0px) rotateY(0deg);
+				transform: translate3d(0px, 0px, 0px) perspective(0px) rotateY(0deg);
+		}
+		to{
+				-webkit-transform: translate3d(60%, 0px, 0px) perspective(200px) rotateY(-15deg);
+				transform: translate3d(60%, 0px, 0px) perspective(200px) rotateY(-15deg);
+		}
+}
+@-webkit-keyframes sl_animation_page_hide{
+		from{
+				-webkit-transform: translate3d(0px, 0px, 0px) perspective(0px) rotateY(0deg);
+				transform: translate3d(0px, 0px, 0px) perspective(0px) rotateY(0deg);
+		}
+		to{
+				-webkit-transform: translate3d(60%, 0px, 0px) perspective(200px) rotateY(-15deg);
+				transform: translate3d(60%, 0px, 0px) perspective(200px) rotateY(-15deg);
+		}
+}
+
+@keyframes sl_animation_nav_show{
+		from{
+				-webkit-transform: translate3d(-50%, -10% ,0px) scale3d(.5,.5,.5);
+				transform: translate3d(-50%, -10% ,0px) scale3d(.5,.5,.5);
+		}
+		to{
+				-webkit-transform: translate3d(0,0,0) scale3d(1,1,1);
+				transform: translate3d(0,0,0) scale3d(1,1,1);
+		}
+}
+@-webkit-keyframes sl_animation_nav_show{
+		from{
+				-webkit-transform: translate3d(-50%, -10% ,0px) scale3d(.5,.5,.5);
+				transform: translate3d(-50%, -10% ,0px) scale3d(.5,.5,.5);
+		}
+		to{
+				-webkit-transform: translate3d(0,0,0) scale3d(1,1,1);
+				transform: translate3d(0,0,0) scale3d(1,1,1);
+		}
+}
+
+
 /************************nav************************/
 #nav {
     position: absolute;

@@ -10,7 +10,7 @@ define([
 ],function($){
 
     var EditMaskRect = function(item){
-        this.type = "maskrect";
+        this.type = EditMaskRect.TYPE;
 //        this.userData = item || {};
 //        if(!item){
             //this.userData = fmaobj.elem.create();
@@ -35,6 +35,7 @@ define([
         this.BaseEdit_initialize();
 
         var userData = this.userData;
+        this.isImage = false;
 
 		this.userData.set("item_type", DisplayObjectType.MASKRECT);
 		this.userData.set("item_opacity", 100);
@@ -70,6 +71,7 @@ define([
         this.bitmap.visible = false;
         this.shape.visible = true;
         var g = this.shape.graphics;
+        this.isImage = false;
         g.clear();
         var data = this.userData;
         //color格式 rgba(0,0,0,1) 或者#000000 或者json {colors:[rgba(0,0,0,1),rgba(255,255,255,1)],ratios:[0,1]}
@@ -128,12 +130,27 @@ define([
     p.setImageUrl = function(url){
         var self = this;
         this.base64Image = url;
+        this.isImage = true;
 //        appLog(url)
         utils.loadImage(url,function(img){
             self.bitmap.image = img;
             self.bitmap.visible = true;
             self.shape.visible = false;
+            self.resize();
         });
+    };
+
+    p.getRectBounds = function(){
+        var b = {x:0,y:0,width:0,height:0};
+        if(this.isImage){
+//            var rect = this.bitmap.getBounds();
+//            b.x = rect.x;
+//            b.y = rect.y;
+
+            b.width = this.bitmap.image.width;
+            b.height = this.bitmap.image.height;
+        }
+        return b;
     };
 
     /**
@@ -161,7 +178,18 @@ define([
 
 	}
 
+    p.setIsDragging = function(b){
+        this.isDragging = b;
+        if(b){
+            this.bgRect.visible = true;
+        }else{
+            this.bgRect.visible = false;
+        }
+    };
+
     p.isEdit = false;
 
     createjs.EditMaskRect = EditMaskRect;
+
+    EditMaskRect.TYPE = "maskrect";
 });

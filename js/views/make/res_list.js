@@ -98,6 +98,32 @@
 		{
 		}
 	}
+	// 取得返回结果_图形
+	function on_query_shape(res_list)
+	{
+		app.watermark_list = res_list;
+		try
+		{
+			var html_code = get_html_watermark(res_list);
+
+			var old_code = g_variable.shape_html;
+
+			$("#watermark_scroller > ul:first").html(old_code + html_code);
+
+			var w =  $("#watermark_scroller > ul:first").find("li:first");
+
+			var liWidth = w.width();
+
+			$("#watermark_scroller").css({width:(liWidth+20) * (g_variable.shape_original_length + res_list.length)+ "px"});
+			setTimeout(function(){
+			g_variable.pic_scroll.refresh();
+			$("#watermark_scroller").scrollLeft(0);
+			},100)
+		}
+		catch (e)
+		{
+		}
+	}
 
 	// 加载边框
 	ResListClass.prototype.load_frame = function(scale, source)
@@ -147,7 +173,7 @@
 	{
 		fmacloud.query_res(
 			"resobj", "type:3", null,true,0,1000,
-			on_query_watermark,
+			on_query_shape,
 			function(err){
 				alert("形状查询失败："+err);
 			}

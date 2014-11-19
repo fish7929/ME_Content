@@ -21,8 +21,9 @@ define([
         },
         render : function(options){
             this.constructor.__super__.render.apply(this,[options]);
+        },
+        pageIn : function(){
         }
-
     });
 
     return SliderView;

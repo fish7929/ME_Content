@@ -58,7 +58,7 @@
             callback(img);
         }else{
             var img = new Image();
-            img.crossOrigin = '';
+            //img.crossOrigin = '';
             img.src = url;
             img.onload = function(){
                 window.utils.loadedImages[url] = img;
@@ -467,8 +467,7 @@
             scrol = cw/tpl.get("tpl_width"),	//比例
 						h = (tpl.get("tpl_height") * scrol) * (1-(17/cw));	//图片的高度
 						// loadingLazy 延迟加载
-            html.push("<div id='water_div_" + (++water_div_id) + "' style='width:"+(cw-1)+"px;height:"+(h+12)+"px;' class='warterbox'>");
-            //visibility:hidden;
+            html.push("<div style='width:"+(cw-1)+"px;height:"+(h+7)+"px;' class='warterbox'>");
             html.push("<img style='background-color:#dadada;height:"+h+"px;' tpl_id='"+tpl.get("tpl_id")+"' alt='"+tpl.get("name")+"' class='lm' data-url='"+img+"' src='images/skin/loading_grey_1px.gif' />");
             // 自调用 onload 方法
             //html.push("<img hidden onload=\"this.removeAttribute('hidden');this.parentNode.removeChild(this.nextSibling);this.removeAttribute('onload');\" tpl_id='"+tpl.get("tpl_id")+"' alt='"+tpl.get("name")+"' src='"+img+"' />");
@@ -492,36 +491,21 @@
 	      	return true;
       	};
       	return html_all;
-    }
+    };
     
     /*
-    	// 页面加载动画
-    	 pre  ID 
-    	 del  是否删除 (true | false)
+    // 页面加载动画
+    // areaid  : 动画覆盖区域，通常为dom id
     */
-    var backTime = null;
-    utils.pageLoading = function(pre,del){
-    		backTime = null;
-    		if(pre == false){
-    				var ma = document.getElementById("make_mask");
-    				if(ma == null)
-		    			return false;
-		    		ma.innerHTML = "<div onclick='javascript:this.style.display='none';localhost.href='#fma/square';' style='text-align:center;color:#fff;font-size:30px;position:absolute;top:48%;width:100%;'>加载失败。。。</div>";
-	    			return false;
-	    	}
-	    	if(del){
-		    		var p = document.getElementById("pageContent");
-		    				if(p == null)
-		    					return false;
-		    				if(p.childNodes[2].id == "make_mask")
-				        	p.removeChild(p.childNodes[2]);
-				    return true;
-		    }
-		    if(document.getElementById("make_mask"))
-		    		return false;
-    		$("#"+pre).after("<div id='make_mask' onmousedown=onmouseup=onclick='javascript:void(0);' style='position:absolute;width:100%;height:100%;z-index:1000000;background-color:#000;'>" +
-        			"<div style='top:48%;' class='mefier'></div>" +
-        		"</div>");
-    		backTime = setTimeout("utils.pageLoading(false,false)",5000);
+    utils.beginPageLoading = function(areaid,url){
+        $("#"+areaid).after("<div id='make_mask' onmousedown=onmouseup=onclick='" +
+            "app.routers.appRouter.navigate("+url+",{replace:true,trigger:true});" +
+            "' style='position:absolute;width:100%;height:100%;z-index:1000000;background-color:#000;'>" +
+            "<div style='top:48%;' class='mefier'></div>" +
+            "</div>");
+    };
+    utils.endPageLoading = function(){
+        $("#make_mask").remove();
     }
+
 })(window);

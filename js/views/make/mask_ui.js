@@ -26,6 +26,8 @@ define([
         this.$el.html(this.template);
         this.maskScroll = null;
 
+        this.parentView.MenuReset(this.$el);
+
         var self = this;
         var ul = this.$el.find("#mask_scroller > ul:first");
         var html = "<li><div class='mask_photo' color='photo_pic'></div></li>";
@@ -53,8 +55,29 @@ define([
              */
             self.closeBtn = $("#mask_on");
 
-            self.closeBtn.on("click",function(){
+            self.closeBtn.on("mouseup",function(){
                 self.hide();
+            });
+
+            //前景背景按钮
+            self.foreBtn = $("#make-fore-btn");
+            self.backBtn = $("#make-back-btn");
+
+            //console.log(self.foreBtn.get(0));
+            self.foreBtn.on("click",function(){
+                self.foreBackClickHandler(1);
+            });
+
+            self.backBtn.on("click",function(){
+                self.foreBackClickHandler(2);
+            });
+
+            if(DisplayObjectManager.lastChangeImageType != -1){
+                self.foreBackClickHandler(DisplayObjectManager.lastChangeImageType);
+            }
+
+            topEvent.bind(EventConstant.FORE_BACK_CHANGE, function(e, data){
+                self.foreBackSelected(data);
             });
 
         //初始化input者造成长度
@@ -69,6 +92,9 @@ define([
             var p = DisplayObjectManager;
             var objects = p.displayObjects;
             var object = objects[1];
+        if(!object){
+            return;
+        }
 
             if(object.type == "maskrect"){
                 object.setAlpha(value);
@@ -155,18 +181,37 @@ define([
     };
 
     MaskUI.prototype.show = function(){
-        this.$el.removeClass("hidemaskui");
-        this.$el.addClass("showmaskui");
+        //this.$el.removeClass("hidemaskui");
+        //this.$el.addClass("showmaskui");
+        //this.$el.slideDown("fast");
+        this.parentView.MenuIn(this.$el);
         this.closeBtn.css({display:"block"});
         this.maskScroll.refresh();
     };
 
     MaskUI.prototype.hide = function(){
-        this.$el.removeClass("showmaskui");
-        this.$el.addClass("hidemaskui");
+        //this.$el.removeClass("showmaskui");
+        //this.$el.addClass("hidemaskui");
+        //this.$el.slideUp("fast");
+        this.parentView.MenuOut(this.$el);
         this.closeBtn.css({display:"none"});
         if(this.onhide){
             this.onhide();
+        }
+    };
+
+    MaskUI.prototype.foreBackClickHandler = function(type){
+        this.foreBackSelected(type);
+        topEvent.trigger(EventConstant.FORE_BACK_CHANGE,type);
+    };
+
+    MaskUI.prototype.foreBackSelected = function(type){
+        if(type == 1){
+            this.backBtn.removeClass("active");
+            this.foreBtn.addClass("active");
+        }else{
+            this.backBtn.addClass("active");
+            this.foreBtn.removeClass("active");
         }
     };
 

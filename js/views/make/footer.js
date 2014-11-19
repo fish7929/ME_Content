@@ -24,22 +24,21 @@ define([
         this.waterMark = parentView.waterMark;
         this.picScroll = parentView.picScroll;
 
+        this.parentView.MenuReset(this.$el);
+
         var self = this;
 
-
-
         utils.delay(function(){
-            var self = this;
 
-            this.currentShow = this.parentView.footer;
+            self.currentShow = self.parentView.footer;
 
-            this.closeBtn = $("#footeron");
+            //this.closeBtn = $("#footeron");
 
-            this.closeBtn.on("click",function(){
-                self.hide();
-            });
+            //this.closeBtn.on("mouseup",function(){
+            //    self.hide();
+            //});
 
-            this.$el.on("click",function(e){
+            self.$el.on("mouseup",function(e){
 //                e.preventDefault();
                 self.footerEventHandle(e);
             });
@@ -54,9 +53,9 @@ define([
         var ftype = utils.getEventAttr(e,"ftype");
         var parentView = this.parentView;
 
-        if(this.currentShow){
-            this.currentShow.hide();
-        }
+        //if(this.currentShow){
+        //    this.currentShow.hide();
+        //}
 
         if(ftype != null){
             switch (ftype){
@@ -77,20 +76,23 @@ define([
                     this.currentShow = parentView.waterMark;
                     break;
             }
+
+            this.parentView.switchCurMenuTo(this.currentShow);
+
         }
-        this.parentView.Default.hide();
-        this.currentShow.show();
     };
 
     Footer.prototype.show = function(){
-        this.$el.show();
-        this.closeBtn.css({display:"block"});
+
+        //this.$el.slideDown("fast");
+        //this.closeBtn.css({display:"block"});
+        this.parentView.MenuIn(this.$el);
     };
 
     Footer.prototype.hide = function(func){
-        this.$el.hide();
-        this.closeBtn.css({display:"none"});
-        this.parentView.Default.show();
+        this.parentView.MenuOut(this.$el);
+        //this.closeBtn.css({display:"none"});
+        //this.parentView.Default.show();
         if(func){
             func();
         }

@@ -267,7 +267,7 @@ define([
 
         var alpha = item.get("item_opacity") / 100;
 
-        text = new createjs.EditText(context,font,color,alpha,item.get("item_width"));
+        text = new createjs.EditText(context,font,color,alpha,200);
 
 		if (font_valight)
 		{
@@ -287,6 +287,21 @@ define([
 
         text.setScale(item.get("x_scale"), item.get("y_scale"));
         text.rotation = item.get("rotate_angle");
+
+		// 设置镜像翻转效果
+		var item_mirror = item.get("item_mirror");
+
+		item.set("item_mirror", "");
+
+		if (item_mirror.indexOf("left") >= 0)
+		{
+			text.setTextMirror("left");
+		}
+
+		if (item_mirror.indexOf("top") >= 0)
+		{
+			text.setTextMirror("top");
+		}
 
 		/* mistery and 2014-10-11 */
         if ( !! item.get("use_mask") ) {

@@ -18,7 +18,7 @@ define([
      */
     var PicScroll = function(parent){
         this.container = $("#makepic");
-        this.container.addClass("make_menu_bgcolor");
+        this.container.addClass("hidemakepic make_menu_bgcolor");
 
         this.initedData = false;
 
@@ -44,7 +44,7 @@ define([
         this.typeScrollDiv.css({width:(130 * (tplConfig.labels.length)) +123+ "px"});
 
         this.parentView = parent;
-
+        this.parentView.MenuReset(this.container);
 
         //类型滚动条
         this.typeScroll = new IScroll('#pic_type_wrapper', {
@@ -149,9 +149,14 @@ define([
             var self = this;
             fmacapi.tpl_get_data(tplId,function(data){
                 //console.log(data);
-                handleTplData.call(self,data);
-                div.parents("ul").find(".active").removeClass("active");
-                div.addClass("active");
+                self.parentView.scaleSpecialCanvas(function(){
+
+                    handleTplData.call(self,data);
+                    div.parents("ul").find(".active").removeClass("active");
+                    div.addClass("active");
+                    self.parentView.scaleSmallCanvas();
+
+                });
             },function(){});
         }
     }
@@ -169,8 +174,9 @@ define([
     };
 
     PicScroll.prototype.show = function(){
-        this.container.removeClass("hidemakepic");
-        this.container.addClass("showmakepic");
+        //this.container.removeClass("hidemakepic");
+        //this.container.addClass("showmakepic");
+        this.parentView.MenuIn(this.container);
         this.closeBtn.css({display:"block"});
         var self = this;
         this.typeScroll.refresh();
@@ -246,8 +252,9 @@ define([
 
     PicScroll.prototype.hide = function(){
         this.onHide();
-        this.container.removeClass("showmakepic");
-        this.container.addClass("hidemakepic");
+//        this.container.removeClass("showmakepic");
+//        this.container.addClass("hidemakepic");
+        this.parentView.MenuOut(this.container);
         this.closeBtn.css({display:"none"});
         if(this.onhide){
             this.onhide();

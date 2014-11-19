@@ -4,6 +4,7 @@
 @import "picframe.css";
 @import "watermark.css";
 @import "watermarkedit.css";
+@import "changePage.css";
 @import "slider.css";
 @import "square.css";
 @import "setting.css";
@@ -67,12 +68,14 @@ body{
     margin: 0;
     padding: 0;
 }
+/*
 .show{
     display: block;
 }
 .hide{
     display: none;
 }
+*/
 .page{
     /*background:#232a30;*/
     height:100%;
@@ -214,12 +217,12 @@ body{
     add ~ 2014-9-27 16.07 mistery
     分享(保存)页 css
 */
+/*
 .save_top_box{
-    background:#303030;
+    background:#232a30;
     height:100px;
     position: relative;
     border-bottom:1px solid #666666;
-    opacity: 0.5;
 }
 .save_break_logo{
     height: 100%;
@@ -237,23 +240,13 @@ body{
 .save_page_long{
     color:#FFFFFF;
 }
-
-.hint_info{
-    font-size:32px;
+.save_page_long > span{
+    font-size:60px;
     margin:10% auto 6% auto;
     width:100%;
     display: block;
     text-align: center;
 }
-
-.fengeline{
-    font-size:28px;
-    margin:10% auto 6% auto;
-    width:100%;
-    display: block;
-    text-align: center;
-}
-
 #save_info>img{
     vertical-align: middle;
     margin-right: 5%;
@@ -292,6 +285,8 @@ body{
         font-size:7em;
     }
 }
+*/
+
 /* add ~ 2014-9-27 16.07 mistery end */
 
 /*设置2*/
@@ -602,11 +597,13 @@ body {
     float: right;
 }
 
+/*
 .slide {
     width: 100%;
     height: 100%;
     float: left;
 }
+*/
 
 /**********************世界页******************/
 /**********************制作页******************/
@@ -662,10 +659,12 @@ body {
     display: block
 }
 
+/*
 .in{
     -webkit-transition:-webkit-transform 800ms;
     -webkit-transform:translate3d(0,0,0);
 }
+*/
 
 .shownoeffect{
     display: block;
@@ -904,7 +903,9 @@ input[type=range].vertical
     background: url("images/ajax-loader.gif") no-repeat center;
     width: 100%;height: 100%;
 }
-
+#setting_about{
+		background-color:#1f1f1f;
+}
 /*   侧边栏效果 所需添加 mistery add   */
 
 #pageContent {
@@ -914,6 +915,8 @@ input[type=range].vertical
     width:100%;
     height:100%;
     overflow:hidden;
+    
+    z-index:2;
 }
 #pageContent > div:last-child{
 		z-index:2;
@@ -924,4 +927,5 @@ input[type=range].vertical
 .filter40{
     -webkit-filter:blur(40px);
 }
+
 

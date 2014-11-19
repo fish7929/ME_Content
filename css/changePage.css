@@ -1,0 +1,208 @@
+/* create mistery */
+
+.ui_page{
+	position:absolute;
+	left:0;
+	top:0;
+	-webkit-backface-visibility:hidden;
+	backface-visibility:hidden;
+}
+
+.ui_view_transitioning,
+.ui_view_transitioning .ui_page{
+	width:100%;
+	height:100%;
+	overflow:hidden;
+	-webkit-box-sizing:border-box;
+	box-sizing:border-box;
+}
+
+.show{display:block !important;}
+.hide{display:none !important;}
+
+.in,.out{
+	-webkit-animation-timing-function: ease-in-out;
+	animation-timing-function: ease-in-out;
+	-webkit-animation-duration: 300ms;
+	animation-duration:300ms;
+}
+
+/* none animation */
+.none.in{
+	-webkit-animation-name:none_in;
+	animation-name:none_in;
+}
+.none.out{
+	-webkit-animation-name:none_out;
+	animation-name:none_out;
+}
+@-webkit-keyframes none_in{
+	from{background-color:transparent;}
+	to{background-color:#1f1f1f;}
+}
+@-webkit-keyframes none_out{
+	from{background-color:#1f1f1f;}
+	to{background-color:transparent;}
+}
+/* none animation */
+
+/*  以下是效果动画    */
+.slide.in{
+	-webkit-transform: translate3d(100%,0,0);
+	transform: translate3d(100%,0,0);
+	-webkit-animation-name: slide_in_from_left;
+	animation-name: slide_in_from_left;
+}
+.slide.out{
+	-webkit-transform: translate3d(0,0,0);
+	transform: translate3d(0,0,0);
+	-webkit-animation-name: slide_out_from_left;
+	animation-name: slide_out_from_left;
+}
+
+.slide.in.reverse{
+	-webkit-transform: translate3d(-100%,0,0);
+	transform: translate3d(-100%,0,0);
+	-webkit-animation-name: slide_in_from_right;
+	animation-name: slide_in_from_right;
+}
+.slide.out.reverse{
+	-webkit-animation-name: slide_out_from_right;
+	animation-name: slide_out_from_right;
+}
+
+/*               slide   out  from  left           */
+@keyframes slide_out_from_left{
+	to{
+		-webkit-transform: translate3d(-100%,0,0);
+		transform: translate3d(-100%,0,0);
+	}
+}
+@-webkit-keyframes slide_out_from_left{
+	to{
+		-webkit-transform: translate3d(-100%,0,0);
+		transform: translate3d(-100%,0,0);
+	}
+}
+/*               slide   out  from  left           */
+
+/*               slide   in  from  left           */
+@-webkit-keyframes slide_in_from_left{
+	to { 
+		-webkit-transform: translate3d(0,0,0); 
+		transform: translate3d(0,0,0);
+	}
+}
+@keyframes slide_in_from_left{
+	to { 
+		-webkit-transform: translate3d(0,0,0); 
+		transform: translate3d(0,0,0);
+	}
+}
+/*               slide   in  from  left           */
+
+/*   serverse  反转  */
+/*               slide   in  from  right           */
+@-webkit-keyframes slide_in_from_right{
+	to{
+		-webkit-transform: translate3d(0,0,0);
+		transform: translate3d(0,0,0);
+	}
+}
+@keyframes slide_in_from_right{
+	to{
+		-webkit-transform: translate3d(0,0,0);
+		transform: translate3d(0,0,0);
+	}
+}
+/*               slide   in  from  right           */
+
+/*               slide   out  from  right           */
+@-webkit-keyframes slide_out_from_right{
+	to{
+		-webkit-transform: translate3d(-100%,0,0);
+		transform: translate3d(-100%,0,0);
+	}
+}
+@keyframes slide_out_from_right{
+	to{
+		-webkit-transform: translate3d(-100%,0,0);
+		transform: translate3d(-100%,0,0);
+	}
+}
+/*               slide   out  from  right           */
+/*   serverse  反转  end */
+
+/*  gemini 双子 效果, 侧边拦效果  */
+/* 侧边拦 in  主题页面 out */
+.gemini.in{
+	-webkit-transform: translate3d(0,0,0) perspective(0px) rotateY(0deg);
+	transform: translate3d(0,0,0) perspective(0px) rotateY(0deg);
+	-webkit-animation-name: gemini_in_;
+	animation-name: gemini_in_;
+}
+.gemini.out{
+	opacity:0;
+	-webkit-animation-name: gemini_out_;
+	animation-name: gemini_out_;
+}
+@keyframes gemini_in_{
+	from {
+		-webkit-transform: translate3d(60%,0,0) perspective(200px) rotateY(-15deg);
+		transform: translate3d(60%,0,0) perspective(200px) rotateY(-15deg);
+	}
+	to{
+		-webkit-transform: translate3d(0,0,0) perspective(0px) rotateY(0);
+		transform: translate3d(0,0,0) perspective(0px) rotateY(0);
+	}
+}
+@-webkit-keyframes gemini_in_{
+	from {
+		-webkit-transform: translate3d(60%,0,0) perspective(200px) rotateY(-15deg);
+		transform: translate3d(60%,0,0) perspective(200px) rotateY(-15deg);
+	}
+	to{
+		-webkit-transform: translate3d(0,0,0) perspective(0px) rotateY(0);
+		transform: translate3d(0,0,0) perspective(0px) rotateY(0);
+	}
+}
+@keyframes gemini_out_{
+	from{opacity: .1;}
+	to{opacity: 0;}
+}
+@-webkit-keyframes gemini_out_{
+	from{opacity: .1;}
+	to{opacity: 0;}
+}
+
+
+/*  fide animation  */
+.fide.in{
+	opacity: 1;
+	-webkit-animation-name:fide_in;
+	animation-name:fide_in;
+}
+.fide.out{
+	opacity: 0;
+	-webkit-animation-name:fide_out;
+	animation-name:fide-out;
+}
+@keyframes fide_in{
+	from{opacity: 0;}
+	to{opacity: 1; }
+}
+@-webkit-keyframes fide_in{
+	from{opacity: 0;}
+	to{opacity: 1; }
+}
+@keyframes fide_out{
+	from{opacity: 1;}
+	to{opacity: 0; }
+}
+@-webkit-keyframes fide_out{
+	from{opacity: 1;}
+	to{opacity: 0; }
+}
+
+
+

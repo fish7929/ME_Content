@@ -53,9 +53,8 @@ require.config({
         masonry : "lib/jquery.masonry",
         infinitescroll : "lib/jquery.infinitescroll",
         imagesLoaded : "lib/jquery.imagesloaded",
-        jqmobile : "lib/jquery-mobile/jquery.mobile-1.4.4"
 //        jqTouch : "lib/jquery.mobile"
-//        jqtap : "lib/jquery.tap"
+        jqtap : "lib/jquery.tap"
 
 	}
 });
@@ -71,23 +70,24 @@ require([
     "common/vs",
     "common/displayobject_manager",
     "common/render/include",
-    'swipejs'
+    'swipejs',
+    'jqtap'
 ], function($,AppRouter,ut,fastClick) {
 
     if(!window.topEvent){
         window.topEvent = $({});
     }
 
-    $(document).bind("mobileinit", function () {
-        $.mobile.ajaxEnabled = false;
-        $.mobile.linkBindingEnabled = false;
-        $.mobile.hashListeningEnabled = false;
-        $.mobile.pushStateEnabled = false;
-        $.event.special.tap.tapholdThreshold = 1200;
-
-//        $.event.special.swipe.horizontalDistanceThreshold = 100; // 修改触发 swipe 事件的最小水平拖曳距离为 100(px)
-//        $.event.special.swipe.verticalDistanceThreshold = 120; // 修改触发 swipe 事件的最大垂直拖曳距离为 120 (px)
-    });
+//    $(document).bind("mobileinit", function () {
+//        $.mobile.ajaxEnabled = false;
+//        $.mobile.linkBindingEnabled = false;
+//        $.mobile.hashListeningEnabled = false;
+//        $.mobile.pushStateEnabled = false;
+//        $.event.special.tap.tapholdThreshold = 1200;
+//
+////        $.event.special.swipe.horizontalDistanceThreshold = 100; // 修改触发 swipe 事件的最小水平拖曳距离为 100(px)
+////        $.event.special.swipe.verticalDistanceThreshold = 120; // 修改触发 swipe 事件的最大垂直拖曳距离为 120 (px)
+//    });
 
     window.onerror = function(message, url, line) {
         if (!url) return;
@@ -114,7 +114,7 @@ require([
         alert(str)
     };
 
-    require(['jqmobile'],function(){
+    //require(['jqmobile'],function(){
         $(document).ready(function(){
 //            require(['views/loading/loading_view']);
             app.routers.appRouter = new AppRouter();
@@ -132,10 +132,10 @@ require([
                 window.heightDiff = height - window.currentHeight;
                 topEvent.trigger("windowresize",{currHeight:window.currentHeight,imHeight:window.heightDiff});
             });
-        });
+        //});
 
         //jquery mobile在初始化时 会把body下原有的元素删除，所以在这里加进去
-        var log = $("<div id='log' style='position: absolute;top: 0;top: 0;pointer-events:none" +
+        var log = $("<div id='log' style='position: absolute;top: 0;top: 0;pointer-events:none;" +
             "z-index: 999;color: #ffffff;font-size:26px'></div>");
 
         var images = $("<div id='loadImage' style='display: none'>"+

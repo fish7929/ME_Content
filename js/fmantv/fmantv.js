@@ -502,6 +502,6 @@ function fmantv_backto_app (result) {
 
     },
     function(err){
-        alert("本机模块初始化失败!原因是："+err.message);
+        //alert("本机模块初始化失败!原因是："+err.message);
     });
 }());

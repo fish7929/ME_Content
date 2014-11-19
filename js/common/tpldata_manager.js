@@ -23,8 +23,8 @@ define(["jquery"],function($){
         if(obj instanceof Array){
             for(var i=0;i < obj.length;i++){
                 var o = obj[i];
-                if(arr.indexOf(obj) == -1){
-                    arr.push(obj);
+                if(arr.indexOf(o) == -1){
+                    arr.push(o);
                 }
             }
         }else{

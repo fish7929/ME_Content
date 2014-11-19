@@ -23,6 +23,11 @@ define([
         this.BaseEdit_initialize(imageOrUri);
 
         this.bitmap = null;
+        /***
+         * 当前图片是否有改变
+         * @type {boolean}
+         */
+        this.imageChanged = false;
         var self = this;
         var userData = this.userData;
         userData.set("item_cntype",2);
@@ -81,6 +86,7 @@ define([
     p.setImageData = function(imgData){
         this.imageData = imgData;
         var self = this;
+        this.imageChanged = true;
         var userData = this.userData;
         utils.loadImage(imgData,function(img){
             self.bitmap.image = img;
@@ -107,9 +113,9 @@ define([
 
             self.bitmap.sourceRect = rect;
 
-            if(rect.targetWidth > wkWidth || rect.targetHeight > wkHeight){
-                self.isDragging = true;
-            }
+//            if(rect.targetWidth > wkWidth || rect.targetHeight > wkHeight){
+//                self.isDragging = true;
+//            }
 
 //            topEvent.trigger(LoadingView.HIDE_LOADING);
 

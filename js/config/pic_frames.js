@@ -9,7 +9,7 @@ define(function(){
      * @type {*[]}
      */
     var frames = {
-        keys : ["1:1","1:2","3:4","4:3"],
+        keys : ["1:1","1:2","3:4","4:3","1:1"],
         "1:1" : [
             {
                  url : "images/skin3/pic_frame_list.png" //画框图片地址
